@@ -1,26 +1,27 @@
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
-const morgan = require('morgan');
-// const apiRestRouter = require('./routes/apiRestRouter');
-const apiUserRouter = require('./routes/apiUserRouter');
+const cors = require('cors');
+// ws part
+const http = require('http');
+const wss = require('./webSocket');
 
 const PORT = process.env.PORT || 3001;
 
 const app = express();
+app.locals.ws = new Map();
 
-app.use(morgan('dev'));
+const userRouter = require('./routes/userRouter');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 app.use(cors({
   credentials: true,
   origin: true,
 }));
 
-app.use(session({
+const sessionParser = session({
   name: 'sid',
   store: new FileStore({}),
   secret: 'jdkjelkwjelk',
@@ -30,11 +31,32 @@ app.use(session({
     expires: 24 * 60 * 60e3,
     httpOnly: true,
   },
-}));
+});
 
-// app.use('/api/v1', apiRestRouter);
-app.use('/api/v2', apiUserRouter);
+app.use(sessionParser);
 
-app.listen(PORT, () => {
-  console.log('server start on port', PORT);
+app.use('/api/user', userRouter);
+
+const server = http.createServer(app);
+
+server.on('upgrade', (request, socket, head) => {
+  console.log('Parsing session from request...', app.locals.ws);
+
+  sessionParser(request, {}, () => {
+    if (!request.session.user) {
+      socket.write('HTTP/1.1 401 Unauthorized\r\n\r\n');
+      socket.destroy();
+      return;
+    }
+
+    console.log('Session is parsed!');
+
+    wss.handleUpgrade(request, socket, head, (ws) => {
+      wss.emit('connection', ws, request, app.locals.ws);
+    });
+  });
+});
+
+server.listen(PORT, () => {
+  console.log('server start on port ', PORT);
 });
