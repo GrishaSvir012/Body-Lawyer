@@ -5,7 +5,7 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const morgan = require('morgan');
 // const apiRestRouter = require('./routes/apiRestRouter');
-// const apiUserRouter = require('./routes/apiUserRouter');
+const apiUserRouter = require('./routes/apiUserRouter');
 
 const PORT = process.env.PORT || 3001;
 
@@ -33,7 +33,7 @@ app.use(session({
 }));
 
 // app.use('/api/v1', apiRestRouter);
-// app.use('/api/v2', apiUserRouter);
+app.use('/api/v2', apiUserRouter);
 
 app.listen(PORT, () => {
   console.log('server start on port', PORT);
