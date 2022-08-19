@@ -1,4 +1,3 @@
-'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('User_bodies', {
@@ -14,11 +13,17 @@ module.exports = {
       weigth: {
         type: Sequelize.INTEGER
       },
+      age: {
+        type: Sequelize.INTEGER
+      },
+      height: {
+        type: Sequelize.INTEGER
+      },
       mission: {
         type: Sequelize.STRING
       },
       activity: {
-        type: Sequelize.STRING
+        type: Sequelize.FLOAT
       },
       calories_needed: {
         type: Sequelize.INTEGER

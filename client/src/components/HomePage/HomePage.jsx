@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import { Col, Row } from 'reactstrap';
 import Button from '@mui/material/Button';
 
@@ -42,5 +43,12 @@ export default function HomePage() {
       </div>
 
     </>
+=======
+import ChatPage from '../Chat/ChatPage';
+
+export default function HomePage() {
+  return (
+    <ChatPage />
+>>>>>>> d66af29d4be9ba78c167e0a7ab418821950c4d37
   );
 }
