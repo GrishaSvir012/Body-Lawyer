@@ -16,10 +16,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   Product_info.init({
     food_name: DataTypes.STRING,
-    calories: DataTypes.INTEGER,
-    protein: DataTypes.INTEGER,
-    fats: DataTypes.INTEGER,
-    carbohidrates: DataTypes.INTEGER
+    calories: DataTypes.FLOAT,
+    protein: DataTypes.FLOAT,
+    fats: DataTypes.FLOAT,
+    carbohidrates: DataTypes.FLOAT
   }, {
     sequelize,
     modelName: 'Product_info',
