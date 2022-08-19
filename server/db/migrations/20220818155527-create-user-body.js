@@ -16,11 +16,14 @@ module.exports = {
       age: {
         type: Sequelize.INTEGER
       },
+      height: {
+        type: Sequelize.INTEGER
+      },
       mission: {
         type: Sequelize.STRING
       },
       activity: {
-        type: Sequelize.STRING
+        type: Sequelize.FLOAT
       },
       calories_needed: {
         type: Sequelize.INTEGER
