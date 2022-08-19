@@ -13,6 +13,7 @@ const app = express();
 app.locals.ws = new Map();
 
 const userRouter = require('./routes/userRouter');
+const bodyRouter = require('./routes/bodyRouter');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -36,6 +37,7 @@ const sessionParser = session({
 app.use(sessionParser);
 
 app.use('/api/user', userRouter);
+app.use('/api/user/body', bodyRouter);
 
 const server = http.createServer(app);
 

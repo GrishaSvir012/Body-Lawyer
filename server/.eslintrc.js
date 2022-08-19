@@ -45,5 +45,6 @@ module.exports = {
     'react/jsx-props-no-spreading': 0,
     'no-restricted-syntax': 0,
     'o-case-declarations': 0,
+    camelcase: 'off',
   },
 };
