@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   User_body.init({
     gender: DataTypes.STRING,
     weigth: DataTypes.INTEGER,
+    age: DataTypes.INTEGER,
     mission: DataTypes.STRING,
     activity: DataTypes.STRING,
     calories_needed: DataTypes.INTEGER,
