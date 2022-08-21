@@ -1,16 +1,8 @@
 import React from 'react';
-import UploadFileIcon from '@mui/icons-material/UploadFile';
-
-import {
-  Col, Form, Row,
-} from 'reactstrap';
+import { Col, Form, Row } from 'reactstrap';
 import TextField from '@mui/material/TextField';
-import { Button, Box } from '@mui/material';
-
-// import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
-import Stack from '@mui/material/Stack';
+import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export default function SignUpLiza() {
   return (
@@ -28,7 +20,7 @@ export default function SignUpLiza() {
               <input hidden accept="image/*" multiple type="file" />
             </Button>
           </div>
-          <Button id="button" variant="contained">далее</Button>
+          <Button id="button" variant="contained"><Link to="/signup/kkal">продолжить</Link></Button>
         </Form>
       </Col>
     </Row>

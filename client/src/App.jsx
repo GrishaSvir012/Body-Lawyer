@@ -14,6 +14,7 @@ import { userCheck } from './Redux/actions/userAcions';
 import './App.css';
 import SignUpLiza from './components/RegistrLiza/SignUpLiza';
 import LogInLiza from './components/RegistrLiza/LogInLiza';
+import CalculateKkal from './components/RegistrLiza/CalculateKkal';
 
 function App() {
   const dispatch = useDispatch();
@@ -46,13 +47,14 @@ function App() {
           path="/signup"
           element={(
             <AuthProtect>
-              <SignUp />
+              <SignUpLiza />
             </AuthProtect>
       )}
         />
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignUpLiza />} />
         <Route path="/login" element={<LogInLiza />} />
+        <Route path="/signup/kkal" element={<CalculateKkal />} />
       </Routes>
     </Grid>
   );

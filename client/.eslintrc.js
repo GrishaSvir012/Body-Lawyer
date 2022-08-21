@@ -31,5 +31,6 @@ module.exports = {
     'default-param-last': 0,
     'linebreak-style': 0,
     'no-param-reassign': 0,
+    'no-lone-blocks': 'off',
   },
 };
