@@ -46,6 +46,6 @@ module.exports = {
     'no-restricted-syntax': 0,
     'o-case-declarations': 0,
     camelcase: 'off',
-    'no-lone-blocks': 'off',
+
   },
 };
