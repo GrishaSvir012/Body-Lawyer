@@ -110,8 +110,8 @@ a {
 
 .fileUpload {
     width: 500px;
-
 }
+
 
 .buttonFileUpload {
     background-color:#637856 !important;
@@ -173,4 +173,7 @@ a {
 
 .buttonsUser button {
     width: 200px;
+
+.helloUser {
+    font-size: 20px;
 }

@@ -1,9 +1,11 @@
+
 import React, { useState } from 'react';
 import { Col, Form, Row } from 'reactstrap';
 import TextField from '@mui/material/TextField';
 import { Button, Box } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { signInUser } from '../../Redux/actions/userAcions';
+
 
 export default function LogInLiza() {
   const [input, setInput] = useState({});
@@ -48,6 +50,13 @@ export default function LogInLiza() {
           >
             войти
           </Button>
+
+        <Form className="form">
+          <div className="titleForm">вход</div>
+          <TextField id="outlined-basic" label="email" variant="outlined" />
+          <TextField id="outlined-basic" label="пароль" variant="outlined" />
+          <Button id="button" variant="contained">войти</Button>
+
         </Form>
       </Col>
     </Row>

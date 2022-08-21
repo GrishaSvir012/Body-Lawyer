@@ -14,6 +14,7 @@ import SignIn from './components/Registration/SignIn';
 import SignUp from './components/Registration/SignUp';
 import PersonalAccount from './components/Personal Account/PersonalAccount';
 
+
 function App() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
@@ -44,13 +45,14 @@ function App() {
           path="/signup"
           element={(
             <AuthProtect>
-              <SignUp />
+              <SignUpLiza />
             </AuthProtect>
       )}
         />
         <Route path="/" element={<HomePage />} />
         <Route path="/signup/kkal" element={<CalculateKkal />} />
         <Route path="/personalaccount" element={<PersonalAccount />} />
+
       </Routes>
     </Container>
   );
