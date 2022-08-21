@@ -18,8 +18,9 @@ export default function PersonalAccount() {
 
           </Row>
           <Row className="buttonsUser">
+
             <Button id="button" variant="contained">статистика</Button>
-            <Button id="button" variant="contained">выход</Button>
+            <Button id="button" variant="contained">Выход</Button>
 
           </Row>
         </Col>
