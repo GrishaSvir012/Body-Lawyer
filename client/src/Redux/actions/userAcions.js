@@ -6,8 +6,8 @@ export const userAdd = (value) => ({
   payload: value,
 });
 
-export const userSignUp = (input) => (dispatch) => {
-  axios.post('/user/signup', input)
+export const userSignUp = (data) => (dispatch) => {
+  axios.post('/user/signup', data)
     .then((res) => dispatch(userAdd(res.data)))
     .catch((err) => console.log(err));
 };
