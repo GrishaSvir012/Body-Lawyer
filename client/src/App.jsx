@@ -52,7 +52,7 @@ function App() {
       )}
         />
         <Route path="/" element={<HomePage />} />
-        <Route path="/signup" element={<SignUpLiza />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LogInLiza />} />
         <Route path="/signup/kkal" element={<CalculateKkal />} />
       </Routes>
