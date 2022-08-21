@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useNavigate } from 'react';
 import { Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import { useDispatch } from 'react-redux';
 import TextField from '@mui/material/TextField';
-import { Button } from '@mui/material';
+import { Button, Link } from '@mui/material';
 import { userSignUp } from '../../Redux/actions/userAcions';
 
 export default function SignUp() {
@@ -20,7 +20,6 @@ export default function SignUp() {
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(input);
     const data = new FormData();
     data.append('name', input.name);
     data.append('email', input.email);
@@ -72,9 +71,10 @@ export default function SignUp() {
             variant="outlined"
           />
           <div className="fileUpload">
-            <Button variant="contained" component="label">
+            <Button className="buttonFileUpload" variant="contained" component="label">
               Загрузить фото
               <input
+                className="buttonFileUpload"
                 name="avatar"
                 onChange={inputHandlerImg}
                 className="form-control"
@@ -87,7 +87,15 @@ export default function SignUp() {
               />
             </Button>
           </div>
-          <Button type="submit" id="button" variant="contained">далее</Button>
+          <Button
+            type="submit"
+            id="button"
+            variant="contained"
+          >
+            <Link to="/signup/kkal">
+              далее
+            </Link>
+          </Button>
         </Form>
         {error && <p> Что то пошло не так</p>}
       </Col>
