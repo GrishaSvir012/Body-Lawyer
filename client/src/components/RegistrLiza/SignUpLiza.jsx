@@ -15,7 +15,7 @@ export default function SignUpLiza() {
           <TextField id="outlined-basic" label="пароль" variant="outlined" />
           <TextField id="outlined-basic" label="повторите пароль" variant="outlined" />
           <div className="fileUpload">
-            <Button variant="contained" component="label">
+            <Button className="buttonFileUpload" variant="contained" component="label">
               Загрузить фото
               <input hidden accept="image/*" multiple type="file" />
             </Button>

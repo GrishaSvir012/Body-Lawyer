@@ -87,7 +87,9 @@ a {
 }
 
 .titleForm{
+    font-family: 'Montserrat Alternates', sans-serif;
     width: 500px;
+    font-size: 32px;
 }
 
 .MuiInputBase-root {
@@ -98,6 +100,7 @@ a {
 .formRow {
     height: calc(100vh - 64px);
     width: 100%;
+    font-weight: 600;
 }
 .formCol {
     display: flex;
@@ -107,8 +110,67 @@ a {
 
 .fileUpload {
     width: 500px;
+
+}
+
+.buttonFileUpload {
+    background-color:#637856 !important;
+    font-size: 16px !important;
+    height: 60px;
+}
+
+.buttonFileUpload input {
+    font-size: 14px !important;
 }
 
 .helloUser {
     font-size: 20px;
+}
+
+.personalAccountRow{
+    height: 100vh;
+
+}
+
+.personalAccount{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 100%;
+}
+
+.userInfo {
+    background-color: rgba(99, 120, 86, 0.49);;
+    height: 70%;
+    margin-right: 10px;
+}
+
+
+.diary {
+    background-color: rgba(99, 120, 86, 0.49);
+    height: 70%;
+    margin-left: 10px;
+}
+.avatar {
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(47, 61, 38, 0.49);
+    height: 30%;
+    margin: 0 !important;
+}
+
+.avatar img {
+    width: 190px; height: 190px;
+    border-radius: 50%;
+}
+
+.buttonsUser{
+    margin: 0 !important;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.buttonsUser button {
+    width: 200px;
 }
