@@ -14,6 +14,7 @@ app.locals.ws = new Map();
 
 const userRouter = require('./routes/userRouter');
 const bodyRouter = require('./routes/bodyRouter');
+const insetFoodRouter = require('./routes/insertFoodRouter');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -38,6 +39,7 @@ app.use(sessionParser);
 
 app.use('/api/user', userRouter);
 app.use('/api/user/body', bodyRouter);
+app.use('/insertyourfood', insetFoodRouter);
 
 const server = http.createServer(app);
 

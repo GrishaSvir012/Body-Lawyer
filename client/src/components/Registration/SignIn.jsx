@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
+import { Col, Form, Row } from 'reactstrap';
+import TextField from '@mui/material/TextField';
+import { Button, Box } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { signInUser } from '../../Redux/actions/userAcions';
 
@@ -15,21 +17,37 @@ export default function SignIn() {
     dispatch(signInUser(input));
   };
 
-  const arr = [
-    { type: 'text', name: 'email', placeholder: 'name', onChange: inputHandler, value: input.email || '' },
-    { type: 'password', name: 'password', placeholder: 'password', onChange: inputHandler, value: input.password || '' },
-  ];
   return (
-    <Row>
-      <Col md={{ size: 4, offset: 4 }} xs="12">
-        <Form onSubmit={submitHandler}>
-          {arr.map((el, index) => (
-            <FormGroup key={index}>
-              <Label>{el.name}</Label>
-              <Input {...el} />
-            </FormGroup>
-          ))}
-          <Button type="submit" disabled={!((input.email && input.password))}> send </Button>
+    <Row className="formRow">
+      <Col className="formCol">
+        <Form onSubmit={submitHandler} className="form">
+          <div className="titleForm">вход</div>
+          <TextField
+            id="outlined-basic"
+            label="email"
+            variant="outlined"
+            type="text"
+            name="email"
+            onChange={inputHandler}
+            value={input.email || ''}
+          />
+          <TextField
+            id="outlined-basic"
+            label="пароль"
+            variant="outlined"
+            type="password"
+            name="password"
+            onChange={inputHandler}
+            value={input.password || ''}
+          />
+          <Button
+            type="submit"
+            id="button"
+            variant="contained"
+            disabled={!((input.email && input.password))}
+          >
+            войти
+          </Button>
         </Form>
       </Col>
     </Row>
