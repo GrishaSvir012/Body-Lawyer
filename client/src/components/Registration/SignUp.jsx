@@ -74,7 +74,6 @@ export default function SignUp() {
             <Button className="buttonFileUpload" variant="contained" component="label">
               Загрузить фото
               <input
-                className="buttonFileUpload"
                 name="avatar"
                 onChange={inputHandlerImg}
                 className="form-control"
