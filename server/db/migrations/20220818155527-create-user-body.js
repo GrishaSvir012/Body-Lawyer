@@ -28,6 +28,15 @@ module.exports = {
       calories_needed: {
         type: Sequelize.INTEGER
       },
+      protein_needed: {
+        type: Sequelize.INTEGER
+      },
+      fats_needed: {
+        type: Sequelize.INTEGER
+      },
+      carbohidrates_needed: {
+        type: Sequelize.INTEGER
+      },
       user_id: {
         type: Sequelize.INTEGER,
         references: {

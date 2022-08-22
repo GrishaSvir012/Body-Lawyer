@@ -21,7 +21,10 @@ module.exports = (sequelize, DataTypes) => {
     mission: DataTypes.STRING,
     activity: DataTypes.FLOAT,
     calories_needed: DataTypes.INTEGER,
-    user_id: DataTypes.INTEGER
+    protein_needed: DataTypes.INTEGER,
+    fats_needed: DataTypes.INTEGER,
+    carbohidrates_needed: DataTypes.INTEGER,
+    user_id: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'User_body',
