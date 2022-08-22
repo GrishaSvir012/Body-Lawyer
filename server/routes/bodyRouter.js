@@ -2,10 +2,28 @@ const router = require('express').Router();
 const { User_body } = require('../db/models');
 
 router.post('/', async (req, res) => {
-  console.log(req.body);
-  // const {
-  //   gender, weigth, age, height, mission, activity
-  // } = req.body;
+  const {
+    gender, weigth, age, height, mission, activity
+  } = req.body;
+
+  let fats;
+  let carbohidrates;
+  let protein;
+
+  if (mission === 'slim') {
+    protein = Math.round(weigth * 1.25);
+    fats = Math.round(weigth * 1.1);
+    carbohidrates = Math.round(weigth * 3.5);
+  } else if (mission === 'save') {
+    protein = Math.round(weigth * 1.35);
+    fats = Math.round(weigth * 1.35);
+    carbohidrates = Math.round(weigth * 4.5);
+  } else if (mission === 'gain') {
+    protein = Math.round(weigth * 1.5);
+    fats = Math.round(weigth * 1.75);
+    carbohidrates = Math.round(weigth * 5.5);
+  }
+
   let calories;
   if (req.body.gender === 'male') {
     calories = Math.round((10 * req.body.weigth + 6.25 * req.body.height - 5 * req.body.age + 5) * req.body.activity);
@@ -15,13 +33,17 @@ router.post('/', async (req, res) => {
 
   const bodyData = await User_body.create({
     user_id: req.session.user.id, // проверить запись на req.session
-    gender: req.body.gender,
-    weigth: req.body.weigth,
-    age: req.body.age,
-    height: req.body.height,
-    mission: req.body.mission,
-    activity: req.body.activity,
-    calories_needed: calories
+    gender,
+    weigth,
+    age,
+    height,
+    mission,
+    activity,
+    calories_needed: calories,
+    protein_needed: protein,
+    fats_needed: fats,
+    carbohidrates_needed: carbohidrates,
+
   });
   console.log('bodyData------>>', bodyData);
   res.json(bodyData);
