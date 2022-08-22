@@ -1,0 +1,179 @@
+
+.css-hip9hq-MuiPaper-root-MuiAppBar-root {
+    background-color:#637856 !important ;
+    display: flex;
+
+}
+
+.MuiButtonBase-root {
+    font-family: 'Montserrat Alternates', sans-serif !important; 
+    text-transform: lowercase !important;
+
+}
+
+.firstDiv {
+    height: calc(100vh - 64px) ;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.text .row{
+    font-family: 'Montserrat Alternates', sans-serif;
+    align-items: center;
+    font-size: 32px;
+    height: 150px;
+    vertical-align: middle;
+}
+
+.title {
+    font-family: 'Montserrat Alternates', sans-serif !important; 
+    font-weight: 600;
+    font-size: 46px !important;
+    justify-content: end;
+}
+
+.plate {
+    position: relative;
+    left: -10%;
+    z-index: -1;
+}
+
+.button{
+    justify-content: end;
+}
+
+#button {
+    font-weight: 600 !important;
+    background-color:#637856 ;
+    width: 50%;
+    height: 50px;
+}
+
+a {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.button button:hover {
+    background-color:#7c9b68 ;
+    width: 50%;
+    height: 50px;
+}
+
+.secondDiv {
+    height: 100vh;
+    background-color: rgba(99, 120, 86, 0.35);
+}
+
+.logo {
+    font-size: 30px !important;
+    font-weight: 900 !important;
+    font-size: 24px !important;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 50%;
+    height: 600px;
+    background-color: white;
+    background: rgba(167, 182, 160, 0.27);
+    text-align: center;
+
+}
+
+.titleForm{
+    font-family: 'Montserrat Alternates', sans-serif;
+    width: 500px;
+    font-size: 32px;
+}
+
+.MuiInputBase-root {
+    width: 500px;
+    background-color: white;
+}
+
+.formRow {
+    height: calc(100vh - 64px);
+    width: 100%;
+    font-weight: 600;
+}
+.formCol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fileUpload {
+    width: 500px;
+}
+
+
+.buttonFileUpload {
+    background-color:#637856 !important;
+    font-size: 16px !important;
+    height: 60px;
+}
+
+.buttonFileUpload input {
+    font-size: 14px !important;
+}
+
+.helloUser {
+    font-size: 20px;
+}
+
+.personalAccountRow{
+    height: 100vh;
+
+}
+
+.personalAccount{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 100%;
+}
+
+.userInfo {
+    background-color: rgba(99, 120, 86, 0.49);;
+    height: 70%;
+    margin-right: 10px;
+}
+
+
+.diary {
+    background-color: rgba(99, 120, 86, 0.49);
+    height: 70%;
+    margin-left: 10px;
+}
+.avatar {
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(47, 61, 38, 0.49);
+    height: 30%;
+    margin: 0 !important;
+}
+
+.avatar img {
+    width: 190px; height: 190px;
+    border-radius: 50%;
+}
+
+.buttonsUser{
+    margin: 0 !important;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.buttonsUser button {
+    width: 200px;
+}
+.helloUser {
+    font-size: 20px;
+}
