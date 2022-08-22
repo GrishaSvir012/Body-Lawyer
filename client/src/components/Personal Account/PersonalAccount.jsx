@@ -174,10 +174,10 @@ export default function PersonalAccount() {
                 </TableContainer>
               </div>
             </Row>
-            <Row> 
-                <
-                сумма калорий за день
-                </Row>
+            <Row>
+
+              сумма калорий за день
+            </Row>
           </Row>
         </Col>
       </div>
