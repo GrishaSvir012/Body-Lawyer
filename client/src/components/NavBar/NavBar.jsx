@@ -7,7 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import Button from '@mui/material/Button';
-import { logoutUser } from '../../Redux/actions/userAcions';
+import { logoutUser } from '../../Redux/actions/userActions';
 
 function NavBar() {
   const user = useSelector((state) => state.user);

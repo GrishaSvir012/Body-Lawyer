@@ -1,16 +1,17 @@
-import React, { useState, useNavigate } from 'react';
+import React, { useState } from 'react';
 import { Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import { useDispatch } from 'react-redux';
 import TextField from '@mui/material/TextField';
 import { Button, Link } from '@mui/material';
-import { userSignUp } from '../../Redux/actions/userAcions';
+import { useNavigate } from 'react-router-dom';
+import { userSignUp } from '../../Redux/actions/userActions';
 
 export default function SignUp() {
   const [input, setInput] = useState({ name: '', email: '', password: '', avatar: null });
   const [error, setError] = useState(false);
 
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const inputHandler = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -20,12 +21,14 @@ export default function SignUp() {
   };
   const submitHandler = (e) => {
     e.preventDefault();
+    // console.log(input);
     const data = new FormData();
     data.append('name', input.name);
     data.append('email', input.email);
     data.append('avatar', input.avatar);
     data.append('password', input.password);
     dispatch(userSignUp(data));
+    navigate('/user/body');
     setInput({});
   };
 
@@ -79,21 +82,20 @@ export default function SignUp() {
                 className="form-control"
                 id="outlined-basic"
                 variant="outlined"
-                // hidden
-                // accept="image/*"
                 multiple
                 type="file"
               />
             </Button>
           </div>
           <Button
+            disabled={!((input.name !== '' && input.email !== '' && input.password !== ''))}
             type="submit"
             id="button"
             variant="contained"
           >
-            <Link to="/signup/kkal">
-              далее
-            </Link>
+
+            далее
+
           </Button>
         </Form>
         {error && <p> Что то пошло не так</p>}
