@@ -13,7 +13,11 @@ import CalculateKkal from './components/RegistrLiza/CalculateKkal';
 import SignIn from './components/Registration/SignIn';
 import SignUp from './components/Registration/SignUp';
 import PersonalAccount from './components/Personal Account/PersonalAccount';
+<<<<<<< HEAD
 import Statistic from './components/Statistic/Statistic';
+=======
+import Statistics from './components/Personal Account/Statistics';
+>>>>>>> a981cb65cf558428177133cb692717e2b9d66398
 
 function App() {
   const dispatch = useDispatch();
@@ -52,7 +56,13 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/user/body" element={<CalculateKkal />} />
         <Route path="/personalaccount" element={<PersonalAccount />} />
+<<<<<<< HEAD
         <Route path="/statistic" element={<Statistic />} />
+=======
+        <Route path="/personalaccount/statistics" element={<Statistics />} />
+       
+
+>>>>>>> a981cb65cf558428177133cb692717e2b9d66398
       </Routes>
     </Container>
   );
