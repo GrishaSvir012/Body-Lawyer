@@ -47,6 +47,7 @@ router.post('/input', async (req, res) => {
       },
     }
   );
+
   res.json(products);
 });
 
