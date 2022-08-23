@@ -45,7 +45,7 @@ router.post('/signup', upload.single('avatar'), async (req, res) => {
   // const {
   //   name, email, img, password
   // } = req.body;
-  console.log('!fjeo---------->WWWWWWWWWWWWWWW', req.body);
+  // console.log('!fjeo---------->WWWWWWWWWWWWWWW', req.body);
   if (req.body.name && req.body.email && req.body.password) {
     const pass = await bcrypt.hash(req.body.password, 10);
     try {

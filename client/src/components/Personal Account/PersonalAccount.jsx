@@ -175,7 +175,6 @@ export default function PersonalAccount() {
               </div>
             </Row>
             <Row>
-
               сумма калорий за день
             </Row>
           </Row>
