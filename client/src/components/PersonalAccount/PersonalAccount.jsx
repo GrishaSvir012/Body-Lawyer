@@ -1,5 +1,4 @@
 import React from 'react';
-import Grid from '@mui/material/Grid';
 import { Row, Col, Breadcrumb, BreadcrumbItem, Form, Input } from 'reactstrap';
 import Button from '@mui/material/Button';
 import Table from '@mui/material/Table';
@@ -9,6 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import ScrollInput from '../ScrollInput/ScrollInput';
 
 export default function PersonalAccount() {
@@ -16,9 +16,13 @@ export default function PersonalAccount() {
   const allProduct = useSelector((state) => state.products);
 
   const submitHandler = () => {
-    
+
   };
 
+  const navigate = useNavigate();
+  const statHandler = () => {
+    navigate('/personalaccount/statistics');
+  };
   return (
     <Row className="personalAccountRow">
       <div className="personalAccount">
@@ -52,7 +56,7 @@ export default function PersonalAccount() {
           </Row>
           <Row className="buttonsUser">
 
-            <Button id="button" variant="contained">статистика</Button>
+            <Button id="button" variant="contained" onClick={statHandler}>статистика</Button>
             <Button id="button" variant="contained">выход</Button>
 
           </Row>

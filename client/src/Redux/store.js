@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import { getChatMessages } from './actions/chatActions';
+import bodyReducer from './reducers/bodyReducer';
 import chatMessageReducer from './reducers/chatMessageReducer';
 import chatUserReducer from './reducers/chatUsersReducer';
 import productsReducer from './reducers/productsReducer';
@@ -12,6 +13,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
   reducer: {
+    body: bodyReducer,
     user: userReducer,
     ws: wsReducer,
     chatUsers: chatUserReducer,

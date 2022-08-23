@@ -7,12 +7,13 @@ import HomePage from './components/HomePage/HomePage';
 import NavBar from './components/NavBar/NavBar';
 import AuthProtect from './components/RoutesProtect/AuthProtect';
 import { socketInit } from './Redux/actions/wsActions';
-import { userCheck } from './Redux/actions/userAcions';
+import { userCheck } from './Redux/actions/userActions';
 import './App.css';
 import CalculateKkal from './components/RegistrLiza/CalculateKkal';
 import SignIn from './components/Registration/SignIn';
 import SignUp from './components/Registration/SignUp';
-import PersonalAccount from './components/PersonalAccount/PersonalAccount';
+import PersonalAccount from './components/Personal Account/PersonalAccount';
+import Statistics from './components/Personal Account/Statistics';
 
 function App() {
   const dispatch = useDispatch();
@@ -50,8 +51,10 @@ function App() {
       )}
         />
         <Route path="/" element={<HomePage />} />
-        <Route path="/signup/kkal" element={<CalculateKkal />} />
+        <Route path="/user/body" element={<CalculateKkal />} />
         <Route path="/personalaccount" element={<PersonalAccount />} />
+        <Route path="/personalaccount/statistics" element={<Statistics />} />
+       
 
       </Routes>
     </Container>
