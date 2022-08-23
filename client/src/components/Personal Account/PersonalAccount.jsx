@@ -10,10 +10,10 @@ import TableRow from '@mui/material/TableRow';
 import { useNavigate } from 'react-router-dom';
 
 export default function PersonalAccount() {
-const navigate = useNavigate();
-const statHandler = () => {
-navigate('/personalaccount/statistics');
-}
+  const navigate = useNavigate();
+  const statHandler = () => {
+    navigate('/personalaccount/statistics');
+  };
   return (
     <Row className="personalAccountRow">
       <div className="personalAccount">
@@ -24,8 +24,10 @@ navigate('/personalaccount/statistics');
           <Row
             className="avatar"
           >
-            <img src="https://wl-adme.cf.tsp.li/resize/728x/jpg/828/489/b2756c5cdd8b6216f063d69448.jpg" alt="img" />
-
+            <div
+              className="img"
+              style={{ background: 'url(https://n1s1.hsmedia.ru/af/f0/de/aff0dee82ae8778d2f88e30ac6254a67/400x600_0x0a330ca2_20593006671527601517.jpeg) no-repeat 50% 50%' }}
+            />
           </Row>
           <Row className="userInfoList">
             <div>
