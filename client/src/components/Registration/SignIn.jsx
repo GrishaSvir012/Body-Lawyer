@@ -3,7 +3,7 @@ import { Col, Form, Row } from 'reactstrap';
 import TextField from '@mui/material/TextField';
 import { Button, Box } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { signInUser } from '../../Redux/actions/userAcions';
+import { signInUser } from '../../Redux/actions/userActions';
 
 export default function SignIn() {
   const [input, setInput] = useState({});
