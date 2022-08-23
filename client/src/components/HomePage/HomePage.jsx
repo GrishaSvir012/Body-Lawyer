@@ -7,7 +7,6 @@ import NavBar from '../NavBar/NavBar';
 export default function HomePage() {
   return (
     <>
-      <NavBar />
       <Row className="firstDiv">
         <Col xs="4" className="plate">
           <img src="https://www.pngmart.com/files/15/Food-Plate-Fish-PNG.png" alt="" />

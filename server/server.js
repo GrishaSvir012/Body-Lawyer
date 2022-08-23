@@ -40,7 +40,7 @@ app.use(sessionParser);
 
 app.use('/api/user', userRouter);
 app.use('/api/user/body', bodyRouter);
-app.use('/insertyourfood', insetFoodRouter);
+app.use('/api/insertyourfood', insetFoodRouter);
 app.use('/statistic', statisticRouter);
 const server = http.createServer(app);
 
