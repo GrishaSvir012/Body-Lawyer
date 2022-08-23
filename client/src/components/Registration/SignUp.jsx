@@ -88,13 +88,14 @@ export default function SignUp() {
             </Button>
           </div>
           <Button
+            disabled={!((input.name !== '' && input.email !== '' && input.password !== ''))}
             type="submit"
             id="button"
             variant="contained"
           >
-            <Link to="/signup/kkal">
-              далее
-            </Link>
+
+            далее
+
           </Button>
         </Form>
         {error && <p> Что то пошло не так</p>}

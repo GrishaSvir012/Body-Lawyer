@@ -33,5 +33,6 @@ module.exports = {
     'no-param-reassign': 0,
     'no-lone-blocks': 'off',
     'react/jsx-no-duplicate-props': 0,
+    'max-len': off,
   },
 };

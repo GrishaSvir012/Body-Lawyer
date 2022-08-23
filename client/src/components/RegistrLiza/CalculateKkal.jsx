@@ -3,7 +3,7 @@ import { Col, Form, Row } from 'reactstrap';
 import TextField from '@mui/material/TextField';
 import { Button, Box, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, InputLabel, Select, MenuItem } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { userBodyAdd } from '../../Redux/actions/bodyActions';
 
 export default function CalculateKkal() {
@@ -15,6 +15,7 @@ export default function CalculateKkal() {
     activity: null,
     mission: null,
   });
+  const navigate = useNavigate();
 
   const changeHandler = (e) => setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ export default function CalculateKkal() {
     e.preventDefault();
     dispatch(userBodyAdd(input));
     setInput({});
+    navigate('/personalaccount');
   };
 
   return (
@@ -102,14 +104,12 @@ export default function CalculateKkal() {
             </Select>
           </FormControl>
           <Button
+            disabled={!((input.gender !== null && input.age !== null && input.weigth !== null && input.height !== null && input.activity !== null && input.mission !== null))}
             type="submit"
             id="button"
             variant="contained"
           >
-            {/* <Link to="/personalaccount">
-              зарегистрироваться
-            </Link> */}
-
+            зарегистрироваться
           </Button>
         </Form>
       </Col>
