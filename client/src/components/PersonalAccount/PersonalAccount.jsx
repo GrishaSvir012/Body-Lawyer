@@ -7,7 +7,9 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import ScrollInput from '../ScrollInput/ScrollInput';
 
 export default function PersonalAccount() {
   const navigate = useNavigate();
@@ -95,8 +97,8 @@ export default function PersonalAccount() {
             </Row>
             <Row className="inputProducts">
               <Form>
-
-                <select className="form-select" aria-label="Default select example">
+                <ScrollInput />
+                {/* <select className="form-select" aria-label="Default select example">
                   <option selected>выберите продукт</option>
                   <option value="1">Борщ</option>
                   <option value="2">Борщ</option>
@@ -106,13 +108,21 @@ export default function PersonalAccount() {
                   <option value="3">Борщ</option>
                   <option value="3">Борщ</option>
                   <option value="3">Борщ</option>
-                </select>
+                </select> */}
                 <Input
                   name="gr"
                   placeholder="введите количество граммов"
                   type="text"
                 />
-                <Button id="button" type="submit" variant="contained">добавить продукт</Button>
+                <Button
+                  id="button"
+                  type="submit"
+                  variant="contained"
+                  onSubmit={submitHandler}
+                >
+                  добавить продукт
+
+                </Button>
               </Form>
 
             </Row>

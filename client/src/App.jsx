@@ -32,6 +32,7 @@ function App() {
 
   return (
     <Container fluid>
+      <NavBar />
       <Routes>
         <Route
           path="/signin"

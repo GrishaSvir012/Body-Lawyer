@@ -4,6 +4,7 @@ import { getChatMessages } from './actions/chatActions';
 import bodyReducer from './reducers/bodyReducer';
 import chatMessageReducer from './reducers/chatMessageReducer';
 import chatUserReducer from './reducers/chatUsersReducer';
+import productsReducer from './reducers/productsReducer';
 import userReducer from './reducers/userReducer';
 import wsReducer from './reducers/wsReducer';
 import rootSaga from './sagas/rootSaga';
@@ -17,6 +18,7 @@ const store = configureStore({
     ws: wsReducer,
     chatUsers: chatUserReducer,
     messages: chatMessageReducer,
+    products: productsReducer,
   },
   middleware: (getDefaultMiddleware) => [...getDefaultMiddleware(), sagaMiddleware],
 });
