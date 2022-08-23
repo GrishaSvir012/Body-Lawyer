@@ -17,7 +17,6 @@ router.post('/', async (req, res) => {
   const sum_carbohidrates_to_db = Math.round(+sum_carbohidrates * (product_weight / 100));
 
   const dailyFoodData = await Daily_food_by_type.create({
-    // user_id: req.session.user_id, // проверить запись на req.session
     date,
     sum_kkal: sum_kkal_to_db,
     sum_protein: sum_protein_to_db,
@@ -32,27 +31,17 @@ router.post('/', async (req, res) => {
 });// ручка запись в базу данных, записывает съеденную еду и подсчитывает значения
 
 router.post('/input', async (req, res) => {
-  const { input } = req.body;
-
+  const { food_name } = req.body;
+  console.log(req.body, 'req.body!!!!!!!');
   const products = await Product_info.findAll(
-    // console.log(products.food_name)
-    //   products.map((el) => el.food_name.toLowerCase())
     {
       where: {
         food_name: {
-          [Op.iLike]: `%${input}%`
-          // [Op.substring]: `%${input}`
-
+          [Op.iLike]: `%${food_name}%`
         },
       },
     }
   );
+  console.log(products);
   res.json(products);
 });
-
-module.exports = router;
-
-// .toLowerCase()
-// setTimeout(() => {
-//   res.json(products);
-// }, 1000);

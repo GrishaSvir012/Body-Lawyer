@@ -12,7 +12,7 @@ import './App.css';
 import CalculateKkal from './components/RegistrLiza/CalculateKkal';
 import SignIn from './components/Registration/SignIn';
 import SignUp from './components/Registration/SignUp';
-import PersonalAccount from './components/Personal Account/PersonalAccount';
+import PersonalAccount from './components/PersonalAccount/PersonalAccount';
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +31,7 @@ function App() {
 
   return (
     <Container fluid>
+      <NavBar />
       <Routes>
         <Route
           path="/signin"
