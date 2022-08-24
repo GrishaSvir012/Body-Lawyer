@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -77,7 +78,7 @@ function NavBar() {
 export default NavBar;
 
 // это гришин navbar
-{ /* <div>
+/* <div>
       <Navbar color="dark" light expand="md">
         <NavbarBrand style={{ color: ws ? 'green' : 'red' }}>
           Адвокат!
@@ -119,4 +120,4 @@ export default NavBar;
           </Nav>
         </Collapse>
       </Navbar>
-    </div> */ }
+    </div> */

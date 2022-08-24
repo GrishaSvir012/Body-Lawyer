@@ -8,17 +8,19 @@ import productsReducer from './reducers/productsReducer';
 import userReducer from './reducers/userReducer';
 import wsReducer from './reducers/wsReducer';
 import rootSaga from './sagas/rootSaga';
+import statReducer from './reducers/statReducer';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
   reducer: {
-    body: bodyReducer,
+    // body: bodyReducer,
     user: userReducer,
     ws: wsReducer,
     chatUsers: chatUserReducer,
     messages: chatMessageReducer,
     products: productsReducer,
+    statistics: statReducer,
   },
   middleware: (getDefaultMiddleware) => [...getDefaultMiddleware(), sagaMiddleware],
 });

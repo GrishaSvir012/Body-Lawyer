@@ -12,3 +12,4 @@ export const SET_CHAT_MESSAGE = 'SET_CHAT_MESSAGE';
 export const ADD_CHAT_MESSAGES = 'ADD_CHAT_MESSAGES';
 export const SOCKET_INIT = 'SOCKET_INIT';
 export const GET_PRODUCT = 'GET_PRODUCT';
+export const GET_STATISTICS = 'GET_STATISTICS';
