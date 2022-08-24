@@ -1,5 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Row, Col, Breadcrumb, BreadcrumbItem, Form, Input } from 'reactstrap';
+import React from 'react';
+import {
+  Row, Col, Breadcrumb, BreadcrumbItem, Form, Input
+} from 'reactstrap';
 import Button from '@mui/material/Button';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -19,45 +21,6 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 
 export default function PersonalAccount() {
-  const person = useSelector((state) => state.body);
-  const user = useSelector((state) => state.user);
-  const allProduct = useSelector((state) => state.products);
-  const [input, setInput] = useState('');
-  const [type, setType] = useState(null);
-  const [product, setProduct] = useState({});
-
-  const [calendar, setCalendar] = useState('');
-  const [open, setOpen] = useState(false);
-  const refOne = useRef(null);
-  console.log(calendar, 'dataaaaa');
-
-  const handleSelect = (date) => {
-    setCalendar(format(date, 'yyyy/MM/dd'));
-    // console.log(date);
-  };
-  const hideOnClickOutSide = (e) => {
-    if (refOne.current && !refOne.current.contains(e.target)) {
-      setOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    setCalendar(format(new Date(), 'yyyy/MM/dd'));
-    document.addEventListener('click', hideOnClickOutSide, true);
-  }, []);
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    axios.post('/insertyourfood', { ...allProduct[0], ...input, type_of_meal_id: type, date: calendar })
-      .then((res) => setProduct(res.data))
-      .catch((err) => console.log(err));
-  };
-  console.log(product, 'product in PersAcc');
-
-  const changeHandler = (e) => {
-    setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
   const navigate = useNavigate();
   const statHandler = () => {
     navigate('/personalaccount/statistics');
@@ -84,32 +47,32 @@ export default function PersonalAccount() {
                 </li>
                 {user.body
                 && (
-                <>
-                  <li>
-                    вес:
-                    {' '}
-                    {user.body.weigth}
-                    {' '}
-                    кг
-                  </li>
-                  <li>
-                    рост:
-                    {' '}
-                    {user.body.height}
-                    {' '}
-                    см
-                  </li>
-                  <li>
-                    цель:
-                    {' '}
-                    {user.body.mission === 'gain'
+                  <>
+                    <li>
+                      вес:
+                      {' '}
+                      {user.body.weigth}
+                      {' '}
+                      кг
+                    </li>
+                    <li>
+                      рост:
+                      {' '}
+                      {user.body.height}
+                      {' '}
+                      см
+                    </li>
+                    <li>
+                      цель:
+                      {' '}
+                      {user.body.mission === 'gain'
                       && 'Набрать вес'}
-                    {user.body.mission === 'save'
+                      {user.body.mission === 'save'
                       && 'Сохранить вес'}
-                    {user.body.mission === 'slim'
+                      {user.body.mission === 'slim'
                       && 'Похудеть'}
-                  </li>
-                </>
+                    </li>
+                  </>
                 )}
               </ul>
             </div>
@@ -140,17 +103,17 @@ export default function PersonalAccount() {
                     value={calendar}
                     readOnly
                     className="inputBox"
-        // eslint-disable-next-line no-shadow
+                    // eslint-disable-next-line no-shadow
                     onClick={() => setOpen((open) => !open)}
                   />
                   <div ref={refOne}>
                     {open
       && (
-      <Calendar
-        date={new Date()}
-        onChange={handleSelect}
-        className="calendarElement"
-      />
+        <Calendar
+          date={new Date()}
+          onChange={handleSelect}
+          className="calendarElement"
+        />
       )}
                   </div>
                 </>

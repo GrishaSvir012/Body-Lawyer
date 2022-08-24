@@ -43,7 +43,7 @@ function App() {
             <AuthProtect>
               <SignIn />
             </AuthProtect>
-        )}
+          )}
         />
         <Route
           path="/signup"
@@ -51,7 +51,7 @@ function App() {
             <AuthProtect>
               <SignUp />
             </AuthProtect>
-      )}
+          )}
         />
         <Route path="/" element={<HomePage />} />
         <Route path="/date" element={<MyDate />} />

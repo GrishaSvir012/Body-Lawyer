@@ -1,5 +1,7 @@
 import React from 'react';
-import { Row, Col, Breadcrumb, BreadcrumbItem, Form, Input } from 'reactstrap';
+import {
+  Row, Col, Breadcrumb, BreadcrumbItem, Form, Input
+} from 'reactstrap';
 import Button from '@mui/material/Button';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -7,8 +9,14 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { useNavigate } from 'react-router-dom';
+import Statistic from '../Statistic/Statistic';
 
 export default function Statistics() {
+  const navigate = useNavigate();
+  const backHandler = () => {
+    navigate('/personalaccount');
+  };
   return (
     <Row className="personalAccountRow">
       <div className="personalAccount">
@@ -41,7 +49,7 @@ export default function Statistics() {
             </div>
           </Row>
           <Row className="buttonsUser">
-            <Button id="button" variant="contained">назад</Button>
+            <Button onClick={backHandler} id="button" variant="contained">назад</Button>
             <Button id="button" variant="contained">выход</Button>
           </Row>
         </Col>
@@ -78,7 +86,7 @@ export default function Statistics() {
             </Row>
             <Row>
               <div className="blockStat">
-                тут будет статистика
+                <Statistic />
               </div>
             </Row>
           </Row>
