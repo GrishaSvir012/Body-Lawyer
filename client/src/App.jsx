@@ -40,7 +40,7 @@ function App() {
             <AuthProtect>
               <SignIn />
             </AuthProtect>
-        )}
+          )}
         />
         <Route
           path="/signup"
@@ -48,9 +48,12 @@ function App() {
             <AuthProtect>
               <SignUp />
             </AuthProtect>
-      )}
+          )}
         />
         <Route path="/" element={<HomePage />} />
+        <Route path="/date" element={<MyDate />} />
+        {/* <Route path="/dateRange" element={<MyDateRange />} />
+        <Route path="/dateRangePicker" element={<DateRangePicker />} /> */}
         <Route path="/user/body" element={<CalculateKkal />} />
         <Route path="/personalaccount" element={<PersonalAccount />} />
         <Route path="/personalaccount/statistics" element={<Statistics />} />
