@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Daily_food_by_type.init({
-    date: DataTypes.STRING,
+    date: DataTypes.DATE,
     sum_kkal: DataTypes.INTEGER,
     sum_protein: DataTypes.INTEGER,
     sum_fats: DataTypes.INTEGER,

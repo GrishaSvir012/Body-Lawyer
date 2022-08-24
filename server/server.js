@@ -17,6 +17,7 @@ const bodyRouter = require('./routes/bodyRouter');
 const insetFoodRouter = require('./routes/insertFoodRouter');
 const statisticRouter = require('./routes/statisticRouter');
 
+app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
