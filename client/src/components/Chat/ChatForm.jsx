@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Form, FormGroup, Input, Col, InputGroup, Button, Row } from 'reactstrap';
+import {
+  Form, FormGroup, Input, Col, InputGroup, Button, Row
+} from 'reactstrap';
 import { sendChatMessage } from '../../Redux/actions/chatActions';
 
 export default function ChatForm() {

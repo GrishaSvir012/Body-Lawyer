@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import {
   take, put, call, fork, takeEvery,
 } from 'redux-saga/effects';

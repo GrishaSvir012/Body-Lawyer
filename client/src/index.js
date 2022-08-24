@@ -9,7 +9,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import store from './Redux/store';
 
 axios.defaults.baseURL = process.env.REACT_APP_BASEURL;
-// axios.defaults.baseURL = 'http://localhost:3001/api';
 axios.defaults.withCredentials = true;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

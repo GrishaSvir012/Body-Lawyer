@@ -18,6 +18,7 @@ const recipeRouter = require('./routes/recipeRouter');
 const insetFoodRouter = require('./routes/insertFoodRouter');
 const statisticRouter = require('./routes/statisticRouter');
 
+app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
@@ -42,7 +43,7 @@ app.use(sessionParser);
 app.use('/api/user', userRouter);
 app.use('/api/user/body', bodyRouter);
 app.use('/api/insertyourfood', insetFoodRouter);
-app.use('/statistic', statisticRouter);
+app.use('/api/statistics', statisticRouter);
 app.use('/api/recipes', recipeRouter);
 const server = http.createServer(app);
 

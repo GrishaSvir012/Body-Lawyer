@@ -14,3 +14,4 @@ export const SOCKET_INIT = 'SOCKET_INIT';
 export const GET_PRODUCT = 'GET_PRODUCT';
 export const GET_RECIPE = 'GET_RECIPE';
 export const ADD_RECIPE = 'ADD_RECIPE';
+export const GET_STATISTICS = 'GET_STATISTICS';
