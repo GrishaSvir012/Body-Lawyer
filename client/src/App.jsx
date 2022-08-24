@@ -59,7 +59,7 @@ function App() {
         <Route path="/user/body" element={<CalculateKkal />} />
         <Route path="/personalaccount" element={<PersonalAccount />} />
         <Route path="/personalaccount/statistics" element={<Statistics />} />
-
+        <Route path="/recipes" element={<RecipesPage />} />
       </Routes>
     </Container>
   );
