@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Row, Col, Breadcrumb, BreadcrumbItem, Form, Input
 } from 'reactstrap';
@@ -21,6 +21,41 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 
 export default function PersonalAccount() {
+  const person = useSelector((state) => state.body);
+  const user = useSelector((state) => state.user);
+  const allProduct = useSelector((state) => state.products);
+  const [input, setInput] = useState('');
+  const [type, setType] = useState(null);
+  const [product, setProduct] = useState({});
+  const [calendar, setCalendar] = useState('');
+  const [open, setOpen] = useState(false);
+  const refOne = useRef(null);
+  console.log(calendar, 'dataaaaa');
+  const handleSelect = (date) => {
+    setCalendar(format(date, 'yyyy/MM/dd'));
+    // console.log(date);
+  };
+  const hideOnClickOutSide = (e) => {
+    if (refOne.current && !refOne.current.contains(e.target)) {
+      setOpen(false);
+    }
+  };
+  useEffect(() => {
+    setCalendar(format(new Date(), 'yyyy/MM/dd'));
+    document.addEventListener('click', hideOnClickOutSide, true);
+  }, []);
+  const submitHandler = (e) => {
+    e.preventDefault();
+    axios.post('/insertyourfood', {
+      ...allProduct[0], ...input, type_of_meal_id: type, date: calendar
+    })
+      .then((res) => setProduct(res.data))
+      .catch((err) => console.log(err));
+  };
+  console.log(product, 'product in PersAcc');
+  const changeHandler = (e) => {
+    setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
   const navigate = useNavigate();
   const statHandler = () => {
     navigate('/personalaccount/statistics');
