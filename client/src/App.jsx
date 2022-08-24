@@ -12,8 +12,8 @@ import './App.css';
 import CalculateKkal from './components/RegistrLiza/CalculateKkal';
 import SignIn from './components/Registration/SignIn';
 import SignUp from './components/Registration/SignUp';
-import PersonalAccount from './components/Personal Account/PersonalAccount';
-import Statistics from './components/Personal Account/Statistics';
+import PersonalAccount from './components/PersonalAccount/PersonalAccount';
+import Statistics from './components/PersonalAccount/Statistics';
 
 function App() {
   const dispatch = useDispatch();
@@ -54,7 +54,6 @@ function App() {
         <Route path="/user/body" element={<CalculateKkal />} />
         <Route path="/personalaccount" element={<PersonalAccount />} />
         <Route path="/personalaccount/statistics" element={<Statistics />} />
-       
 
       </Routes>
     </Container>

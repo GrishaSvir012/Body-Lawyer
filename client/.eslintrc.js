@@ -32,5 +32,6 @@ module.exports = {
     'linebreak-style': 0,
     'no-param-reassign': 0,
     'react/jsx-no-duplicate-props': 0,
+    'no-lone-blocks': 0,
   },
 };

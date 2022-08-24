@@ -12,6 +12,13 @@ import { useNavigate } from 'react-router-dom';
 import ScrollInput from '../ScrollInput/ScrollInput';
 
 export default function PersonalAccount() {
+  const person = useSelector((state) => state.person);
+  const allProduct = useSelector((state) => state.products);
+
+  const submitHandler = () => {
+
+  };
+
   const navigate = useNavigate();
   const statHandler = () => {
     navigate('/personalaccount/statistics');
