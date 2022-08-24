@@ -40,8 +40,8 @@ app.use(sessionParser);
 
 app.use('/api/user', userRouter);
 app.use('/api/user/body', bodyRouter);
-app.use('/insertyourfood', insetFoodRouter);
-app.use('/statistic', statisticRouter);
+app.use('api/insertyourfood', insetFoodRouter);
+app.use('/api/statistics', statisticRouter);
 const server = http.createServer(app);
 
 server.on('upgrade', (request, socket, head) => {

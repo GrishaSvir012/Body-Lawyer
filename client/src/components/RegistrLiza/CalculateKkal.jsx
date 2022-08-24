@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Col, Form, Row } from 'reactstrap';
 import TextField from '@mui/material/TextField';
-import { Button, Box, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, InputLabel, Select, MenuItem } from '@mui/material';
+import {
+  Button, Box, FormControl, FormLabel,
+  RadioGroup, FormControlLabel,
+  Radio, InputLabel, Select, MenuItem,
+} from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { userBodyAdd } from '../../Redux/actions/bodyActions';
@@ -104,7 +108,10 @@ export default function CalculateKkal() {
             </Select>
           </FormControl>
           <Button
-            disabled={!((input.gender !== null && input.age !== null && input.weigth !== null && input.height !== null && input.activity !== null && input.mission !== null))}
+            disabled={!((input.gender !== null
+              && input.age !== null && input.weigth !== null
+              && input.height !== null && input.activity !== null
+               && input.mission !== null))}
             type="submit"
             id="button"
             variant="contained"

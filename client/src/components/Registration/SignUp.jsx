@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
+import {
+  Col, Form, FormGroup, Input, Label, Row
+} from 'reactstrap';
 import { useDispatch } from 'react-redux';
 import TextField from '@mui/material/TextField';
 import { Button, Link } from '@mui/material';
@@ -7,7 +9,9 @@ import { useNavigate } from 'react-router-dom';
 import { userSignUp } from '../../Redux/actions/userActions';
 
 export default function SignUp() {
-  const [input, setInput] = useState({ name: '', email: '', password: '', avatar: null });
+  const [input, setInput] = useState({
+    name: '', email: '', password: '', avatar: null
+  });
   const [error, setError] = useState(false);
 
   const dispatch = useDispatch();

@@ -1,5 +1,7 @@
 import React from 'react';
-import { Row, Col, Breadcrumb, BreadcrumbItem, Form, Input } from 'reactstrap';
+import {
+  Row, Col, Breadcrumb, BreadcrumbItem, Form, Input
+} from 'reactstrap';
 import Button from '@mui/material/Button';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -10,10 +12,10 @@ import TableRow from '@mui/material/TableRow';
 import { useNavigate } from 'react-router-dom';
 
 export default function PersonalAccount() {
-const navigate = useNavigate();
-const statHandler = () => {
-navigate('/personalaccount/statistics');
-}
+  const navigate = useNavigate();
+  const statHandler = () => {
+    navigate('/personalaccount/statistics');
+  };
   return (
     <Row className="personalAccountRow">
       <div className="personalAccount">
