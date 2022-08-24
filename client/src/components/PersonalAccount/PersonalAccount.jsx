@@ -9,7 +9,16 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { Box } from '@mui/material';
+import { Calendar } from 'react-date-range';
+import format from 'date-fns/format';
+import ScrollInput from '../ScrollInput/ScrollInput';
+import MyDate from '../Date/MyDate';
+import 'react-date-range/dist/styles.css';
+import 'react-date-range/dist/theme/default.css';
 
 export default function PersonalAccount() {
   const navigate = useNavigate();
@@ -17,6 +26,7 @@ export default function PersonalAccount() {
     navigate('/personalaccount/statistics');
   };
   return (
+
     <Row className="personalAccountRow">
       <div className="personalAccount">
         <Col
@@ -26,24 +36,44 @@ export default function PersonalAccount() {
           <Row
             className="avatar"
           >
-            <img src="https://wl-adme.cf.tsp.li/resize/728x/jpg/828/489/b2756c5cdd8b6216f063d69448.jpg" alt="img" />
-
+            <img src={`http://localhost:3001${user.img}`} alt="img" />
+            {/* <img src="https://wl-adme.cf.tsp.li/resize/728x/jpg/828/489/b2756c5cdd8b6216f063d69448.jpg" alt="img" /> */}
           </Row>
           <Row className="userInfoList">
             <div>
               <ul>
                 <li>
-                  имя: Анна
+                  {user.name}
                 </li>
-                <li>
-                  вес: 60 кг
-                </li>
-                <li>
-                  рост: 170 см
-                </li>
-                <li>
-                  цель: похудеть
-                </li>
+                {user.body
+                && (
+                  <>
+                    <li>
+                      вес:
+                      {' '}
+                      {user.body.weigth}
+                      {' '}
+                      кг
+                    </li>
+                    <li>
+                      рост:
+                      {' '}
+                      {user.body.height}
+                      {' '}
+                      см
+                    </li>
+                    <li>
+                      цель:
+                      {' '}
+                      {user.body.mission === 'gain'
+                      && 'Набрать вес'}
+                      {user.body.mission === 'save'
+                      && 'Сохранить вес'}
+                      {user.body.mission === 'slim'
+                      && 'Похудеть'}
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
           </Row>
@@ -63,56 +93,78 @@ export default function PersonalAccount() {
               <Col>
                 дневник питания
               </Col>
+              {/* <Box sx={{ width: '100%' }}> */}
               <Col>
-                дата
+                {/* <Box sx={{
+                    width: '%' }}
+                  > */}
+                <>
+                  <input
+                    value={calendar}
+                    readOnly
+                    className="inputBox"
+                    // eslint-disable-next-line no-shadow
+                    onClick={() => setOpen((open) => !open)}
+                  />
+                  <div ref={refOne}>
+                    {open
+      && (
+        <Calendar
+          date={new Date()}
+          onChange={handleSelect}
+          className="calendarElement"
+        />
+      )}
+                  </div>
+                </>
+                {/* </Box> */}
               </Col>
+              {/* </Box> */}
             </Row>
             <Row className="buttonMeals">
               <div>
                 <Breadcrumb>
                   <BreadcrumbItem>
-                    <a href="#">
-                      завтрак
-                    </a>
+                    <Button type="button" onClick={() => setType(1)}>
+                      Завтрак
+                    </Button>
                   </BreadcrumbItem>
                   <BreadcrumbItem>
-                    <a href="#">
-                      обед
-                    </a>
+                    <Button type="button" onClick={() => setType(2)}>
+                      Обед
+                    </Button>
                   </BreadcrumbItem>
                   <BreadcrumbItem>
-                    <a href="#">
-                      ужин
-                    </a>
+                    <Button type="button" onClick={() => setType(3)}>
+                      Ужин
+                    </Button>
                   </BreadcrumbItem>
                   <BreadcrumbItem>
-                    <a href="#">
-                      перекус
-                    </a>
+                    <Button type="button" onClick={() => setType(4)}>
+                      Перекус
+                    </Button>
                   </BreadcrumbItem>
                 </Breadcrumb>
               </div>
             </Row>
             <Row className="inputProducts">
-              <Form>
-
-                <select className="form-select" aria-label="Default select example">
-                  <option selected>выберите продукт</option>
-                  <option value="1">Борщ</option>
-                  <option value="2">Борщ</option>
-                  <option value="3">Борщ</option>
-                  <option value="3">Борщ</option>
-                  <option value="3">Борщ</option>
-                  <option value="3">Борщ</option>
-                  <option value="3">Борщ</option>
-                  <option value="3">Борщ</option>
-                </select>
+              <Form onSubmit={submitHandler}>
+                <ScrollInput />
                 <Input
                   name="gr"
+                  value={input.gr}
+                  onChange={changeHandler}
                   placeholder="введите количество граммов"
                   type="text"
                 />
-                <Button id="button" type="submit" variant="contained">добавить продукт</Button>
+                <Button
+                  id="button"
+                  type="submit"
+                  variant="contained"
+                >
+                  добавить продукт
+
+                </Button>
               </Form>
 
             </Row>
@@ -123,10 +175,10 @@ export default function PersonalAccount() {
                     height: 300,
                   }}
                 >
-                  <Table sx={{
-                    height: 'max-content',
-                  }}
-                  >
+                  <Table>
+                    {/* sx={{
+                     height: 'max-content',
+                   }} */}
                     <TableHead>
                       <TableRow>
                         <TableCell>#</TableCell>

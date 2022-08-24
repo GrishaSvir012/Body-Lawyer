@@ -5,6 +5,9 @@ router.post('/', async (req, res) => {
   const {
     gender, weigth, age, height, mission, activity
   } = req.body;
+  req.session.user.body = {
+    gender, weigth, age, height, mission, activity
+  };
 
   let fats;
   let carbohidrates;
@@ -26,9 +29,11 @@ router.post('/', async (req, res) => {
 
   let calories;
   if (req.body.gender === 'male') {
-    calories = Math.round((10 * req.body.weigth + 6.25 * req.body.height - 5 * req.body.age + 5) * req.body.activity);
+    calories = Math.round(
+      (10 * req.body.weigth + 6.25 * req.body.height - 5 * req.body.age + 5) * req.body.activity);
   } else {
-    calories = Math.round((10 * req.body.weigth + 6.25 * req.body.height - 5 * req.body.age - 161) * req.body.activity);
+    calories = Math.round(
+      (10 * req.body.weigth + 6.25 * req.body.height - 5 * req.body.age - 161) * req.body.activity);
   }
 
   const bodyData = await User_body.create({

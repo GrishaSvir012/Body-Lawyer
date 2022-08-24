@@ -12,8 +12,11 @@ import './App.css';
 import CalculateKkal from './components/RegistrLiza/CalculateKkal';
 import SignIn from './components/Registration/SignIn';
 import SignUp from './components/Registration/SignUp';
-import PersonalAccount from './components/Personal Account/PersonalAccount';
-import Statistics from './components/Personal Account/Statistics';
+import PersonalAccount from './components/PersonalAccount/PersonalAccount';
+import Statistics from './components/PersonalAccount/Statistics';
+import MyDate from './components/Date/MyDate';
+import MyDateRange from './components/Date/DateRange';
+import DateRangePicker from './components/Date/DateRangewPicker';
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +35,7 @@ function App() {
 
   return (
     <Container fluid>
+      <NavBar />
       <Routes>
         <Route
           path="/signin"
@@ -50,6 +54,9 @@ function App() {
           )}
         />
         <Route path="/" element={<HomePage />} />
+        <Route path="/date" element={<MyDate />} />
+        {/* <Route path="/dateRange" element={<MyDateRange />} />
+        <Route path="/dateRangePicker" element={<DateRangePicker />} /> */}
         <Route path="/user/body" element={<CalculateKkal />} />
         <Route path="/personalaccount" element={<PersonalAccount />} />
         <Route path="/personalaccount/statistics" element={<Statistics />} />

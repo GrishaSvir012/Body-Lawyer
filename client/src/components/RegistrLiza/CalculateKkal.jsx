@@ -108,10 +108,11 @@ export default function CalculateKkal() {
             </Select>
           </FormControl>
           <Button
-            disabled={!((input.gender !== null
-              && input.age !== null && input.weigth !== null
-              && input.height !== null && input.activity !== null
-               && input.mission !== null))}
+            disabled={!((
+              input.gender !== null
+              && input.age !== null
+              && input.weigth !== null
+              && input.height !== null && input.activity !== null && input.mission !== null))}
             type="submit"
             id="button"
             variant="contained"
