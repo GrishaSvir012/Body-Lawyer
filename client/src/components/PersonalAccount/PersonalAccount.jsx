@@ -36,6 +36,10 @@ export default function PersonalAccount() {
           <Row
             className="avatar"
           >
+            <div
+              className="img"
+              style={{ background: 'url(https://n1s1.hsmedia.ru/af/f0/de/aff0dee82ae8778d2f88e30ac6254a67/400x600_0x0a330ca2_20593006671527601517.jpeg) no-repeat 50% 50%' }}
+            />
             <img src={`http://localhost:3001${user.img}`} alt="img" />
             {/* <img src="https://wl-adme.cf.tsp.li/resize/728x/jpg/828/489/b2756c5cdd8b6216f063d69448.jpg" alt="img" /> */}
           </Row>
