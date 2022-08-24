@@ -13,7 +13,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
   reducer: {
-    body: bodyReducer,
+    // body: bodyReducer,
     user: userReducer,
     ws: wsReducer,
     chatUsers: chatUserReducer,

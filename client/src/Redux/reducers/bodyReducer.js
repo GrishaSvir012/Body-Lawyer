@@ -4,7 +4,7 @@ const bodyReducer = (state = {}, action) => {
   const { type, payload } = action;
   switch (type) {
     case ADD_BODY:
-      return payload;
+      return { ...state, body: payload };
 
     default:
       return state;
