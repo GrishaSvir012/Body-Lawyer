@@ -43,11 +43,12 @@ module.exports = {
     'no-console': 0,
     'no-alert': 0,
     'linebreak-style': 0,
-    'no-lone-blocks': 0,
+    'eslint-disable-next-line': 0,
     'react/jsx-props-no-spreading': 0,
     camelcase: 'off',
     // 'arrow-body-style':off,
     // 'no-param-reassign': 0,
+    'no-lone-blocks': 0,
   },
 
 };
