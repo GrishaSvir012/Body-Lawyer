@@ -14,6 +14,7 @@ import SignIn from './components/Registration/SignIn';
 import SignUp from './components/Registration/SignUp';
 import PersonalAccount from './components/PersonalAccount/PersonalAccount';
 import Statistics from './components/PersonalAccount/Statistics';
+import MyDate from './components/Date/MyDate';
 
 function App() {
   const dispatch = useDispatch();

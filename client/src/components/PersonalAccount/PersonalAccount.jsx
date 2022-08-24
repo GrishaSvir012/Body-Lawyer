@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Row, Col, Breadcrumb, BreadcrumbItem, Form, Input
 } from 'reactstrap';
@@ -21,10 +21,53 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 
 export default function PersonalAccount() {
+  const person = useSelector((state) => state.body);
+  const user = useSelector((state) => state.user);
+  const allProduct = useSelector((state) => state.products);
+  const [input, setInput] = useState('');
+  const [type, setType] = useState(null);
+  const [product, setProduct] = useState({});
+  const [calendar, setCalendar] = useState('');
+  const [open, setOpen] = useState(false);
+  const refOne = useRef(null);
+  console.log(calendar, 'dataaaaa');
+  const handleSelect = (date) => {
+    setCalendar(format(date, 'yyyy/MM/dd'));
+    // console.log(date);
+  };
+  const hideOnClickOutSide = (e) => {
+    if (refOne.current && !refOne.current.contains(e.target)) {
+      setOpen(false);
+    }
+  };
+  useEffect(() => {
+    setCalendar(format(new Date(), 'yyyy/MM/dd'));
+    document.addEventListener('click', hideOnClickOutSide, true);
+  }, []);
+  const submitHandler = (e) => {
+    e.preventDefault();
+    axios.post('/insertyourfood', {
+      ...allProduct[0], ...input, type_of_meal_id: type, date: calendar
+    })
+      .then((res) => setProduct(res.data))
+      .catch((err) => console.log(err));
+  };
+  console.log(product, 'product in PersAcc');
+  const changeHandler = (e) => {
+    setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
   const navigate = useNavigate();
   const statHandler = () => {
     navigate('/personalaccount/statistics');
   };
+
+  // логика нажатой кнопки
+  // console.log(type, 'это тайп');
+  // const [active1, setActive1] = useState({ color: 'white' });
+  // const [active2, setActive2] = useState(false);
+  // const [active3, setActive3] = useState({ color: 'white' });
+  // const [active4, setActive4] = useState({ color: 'white' });
+  // const [disable, setDisable] = useState(true);
   return (
 
     <Row className="personalAccountRow">
@@ -38,13 +81,17 @@ export default function PersonalAccount() {
           >
             <div
               className="img"
-              style={{ background: 'url(https://n1s1.hsmedia.ru/af/f0/de/aff0dee82ae8778d2f88e30ac6254a67/400x600_0x0a330ca2_20593006671527601517.jpeg) no-repeat 50% 50%' }}
+              style={{ background: `url('http://localhost:3001${user.img}') no-repeat 50% 50%` }}
             />
+            {/* <img src={`http://localhost:3001${user.img}`} alt="img" /> */}
+            {/* <img src="https://wl-adme.cf.tsp.li/resize/728x/jpg/828/489/b2756c5cdd8b6216f063d69448.jpg" alt="img" /> */}
           </Row>
           <Row className="userInfoList">
             <div>
               <ul>
                 <li>
+                  имя:
+                  {' '}
                   {user.name}
                 </li>
                 {user.body
@@ -81,8 +128,8 @@ export default function PersonalAccount() {
           </Row>
           <Row className="buttonsUser">
 
-            <Button id="button" variant="contained" onClick={statHandler}>статистика</Button>
-            <Button id="button" variant="contained">выход</Button>
+            <Button className="stat" id="button" variant="contained" onClick={statHandler}>статистика</Button>
+            <Button className="exit" id="button" variant="contained">выход</Button>
 
           </Row>
         </Col>
@@ -91,32 +138,32 @@ export default function PersonalAccount() {
           xs="8"
         >
           <Row className="diaryRow">
-            <Row>
-              <Col>
+            <Row className="titleAndInput">
+              <Col className="titleDiary">
                 дневник питания
               </Col>
               {/* <Box sx={{ width: '100%' }}> */}
-              <Col>
+              <Col className="inputCol">
                 {/* <Box sx={{
                     width: '%' }}
                   > */}
                 <>
-                  <input
+                  <Input
                     value={calendar}
                     readOnly
                     className="inputBox"
                     // eslint-disable-next-line no-shadow
                     onClick={() => setOpen((open) => !open)}
                   />
-                  <div ref={refOne}>
+                  <div className="openCalendar" ref={refOne}>
                     {open
-      && (
-        <Calendar
-          date={new Date()}
-          onChange={handleSelect}
-          className="calendarElement"
-        />
-      )}
+                          && (
+                            <Calendar
+                              date={new Date()}
+                              onChange={handleSelect}
+                              className="calendarElement"
+                            />
+                          )}
                   </div>
                 </>
                 {/* </Box> */}
@@ -150,9 +197,10 @@ export default function PersonalAccount() {
               </div>
             </Row>
             <Row className="inputProducts">
-              <Form onSubmit={submitHandler}>
+              <Form className="formProducts" onSubmit={submitHandler}>
                 <ScrollInput />
                 <Input
+                  className="inputGramm"
                   name="gr"
                   value={input.gr}
                   onChange={changeHandler}
@@ -234,7 +282,7 @@ export default function PersonalAccount() {
                 </TableContainer>
               </div>
             </Row>
-            <Row>
+            <Row className="sumKkal">
               сумма калорий за день
             </Row>
           </Row>

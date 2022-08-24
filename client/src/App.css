@@ -240,11 +240,14 @@ a {
     display: flex;
     justify-content: center;  
     flex-wrap: wrap; 
+
 }
 
 .diaryRow .row {
     width: 100%;
 }
+
+
 
 .avatar {
     justify-content: center;
@@ -255,10 +258,10 @@ a {
 }
 
 .avatar .img {
-max-width: 200px; height: 200px; /* Ширина и высота */
-   border-radius: 50%; /* Превращаем в круг */
-   background-size: auto 190px; /* Высота фотографии равна высоте элемента */
-   object-fit: cover;
+    max-width: 200px; height: 200px; /* Ширина и высота */
+    border-radius: 50%; /* Превращаем в круг */
+    background-size: auto 190px; /* Высота фотографии равна высоте элемента */
+    object-fit: cover;
 }
 
 .buttonsUser{
@@ -282,21 +285,107 @@ max-width: 200px; height: 200px; /* Ширина и высота */
     list-style-type: none;
 }
 
-
 .buttonsUser button {
     width: 200px !important;
-    background-color: #D9D9D9 !important;
     height: 30%;
+}
+
+.stat{
+    background-color: #637856 !important;
+    margin-bottom: 20px !important;
+}
+
+.exit {
+    background-color: #D9D9D9 !important;
+    color: black !important;
 }
 
 .helloUser {
     font-size: 20px;
 }
+.titleAndInput{
+    display: flex;
+    align-items: center;
+}
+.titleDiary{
+    text-align: left;
+    font-family: 'Comfortaa', cursive !important;
+    font-size: 18px;
+}
+.inputCol{
+    text-align: right;
+    display: flex;
+    justify-content: end;
+}
+
+.inputBox {
+    width: 200px !important;
+    text-align: center;
+}
+
+
+.breadcrumb{
+    justify-content: center;
+}
+
+.openCalendar{
+    position: absolute;
+    z-index: 2;
+    border: 1px solid;
+    bottom: 41%;
+    background-color: white;
+}
+
+.rdrDays button {
+    color: #355030 !important;
+}
+
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+    color: white !important;
+    font-size: 20px !important;
+}
+
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root:active {
+    color: rgb(0, 0, 0) !important;
+}
+
+
+.breadcrumb-item+.breadcrumb-item::before{
+    float: none !important;
+    font-size: 20px;
+}
+
 
 .buttonMeals{
     height: 50px;
 }
+.formProducts{
+    justify-content: center;
+    display: flex;
+}
+.formProducts button {
+    width: 98% !important;
+    height: 53px !important;
+}
 
+.MuiAutocomplete-root{
+    width: 1400px;
+    height: 55px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+
+
+.css-1q60rmi-MuiAutocomplete-endAdornment {
+    top: 0% !important;
+}
+
+.inputGramm{
+    height: 55px;
+    width: 250px;
+    margin-right: 10px;
+}
 .productList {
     background-color: white;
     height: 300px;
@@ -311,3 +400,8 @@ max-width: 200px; height: 200px; /* Ширина и высота */
     overflow: auto;
 }
 
+.sumKkal {
+    text-align: left;
+    font-family: 'Comfortaa', cursive !important;
+    font-size: 18px;
+}

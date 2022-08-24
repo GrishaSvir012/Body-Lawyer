@@ -37,11 +37,11 @@ export default function myDate() {
       <div ref={refOne}>
         {open
       && (
-      <Calendar
-        date={new Date()}
-        onChange={handleSelect}
-        className="calendarElement"
-      />
+        <Calendar
+          date={new Date()}
+          onChange={handleSelect}
+          className="calendarElement"
+        />
       )}
       </div>
     </>
