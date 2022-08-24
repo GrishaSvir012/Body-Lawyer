@@ -14,6 +14,7 @@ app.locals.ws = new Map();
 
 const userRouter = require('./routes/userRouter');
 const bodyRouter = require('./routes/bodyRouter');
+const recipeRouter = require('./routes/recipeRouter');
 const insetFoodRouter = require('./routes/insertFoodRouter');
 const statisticRouter = require('./routes/statisticRouter');
 
@@ -43,6 +44,7 @@ app.use('/api/user', userRouter);
 app.use('/api/user/body', bodyRouter);
 app.use('/api/insertyourfood', insetFoodRouter);
 app.use('/api/statistics', statisticRouter);
+app.use('/api/recipes', recipeRouter);
 const server = http.createServer(app);
 
 server.on('upgrade', (request, socket, head) => {
