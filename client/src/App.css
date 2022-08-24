@@ -289,9 +289,10 @@ max-width: 200px; height: 200px; /* Ширина и высота */
     height: 30%;
 }
 
-.helloUser {
+/* .helloUser {
     font-size: 20px;
-}
+    margin-top: 10px;
+} */
 
 .buttonMeals{
     height: 50px;

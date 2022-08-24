@@ -39,15 +39,15 @@ export default function MyDateRangePicker() {
       <div ref={refOne}>
         {open
       && (
-      <DateRangePicker
-        onChange={(item) => setRange([item.selection])}
-        editableDateInputs
-        moveRangeOnFirstSelection={false}
-        ranges={range}
-        months={2}
-        direction="horizontal"
-        className="calendarElement"
-      />
+        <DateRangePicker
+          onChange={(item) => setRange([item.selection])}
+          editableDateInputs
+          moveRangeOnFirstSelection={false}
+          ranges={range}
+          months={2}
+          direction="horizontal"
+          className="calendarElement"
+        />
       )}
       </div>
     </>
