@@ -51,6 +51,7 @@ export default function SignUp() {
         <Form onSubmit={submitHandler} className="form">
           <div className="titleForm">регистрация</div>
           <TextField
+            className="inputReg"
             type="text"
             name="name"
             onChange={inputHandler}
@@ -60,6 +61,7 @@ export default function SignUp() {
             variant="outlined"
           />
           <TextField
+            className="inputReg"
             type="email"
             name="email"
             onChange={inputHandler}
@@ -69,6 +71,7 @@ export default function SignUp() {
             variant="outlined"
           />
           <TextField
+            className="inputReg"
             type="password"
             name="password"
             onChange={inputHandler}
