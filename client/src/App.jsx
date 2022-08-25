@@ -15,7 +15,9 @@ import SignUp from './components/Registration/SignUp';
 import PersonalAccount from './components/PersonalAccount/PersonalAccount';
 import Statistics from './components/PersonalAccount/Statistics';
 import MyDateRange from './components/Date/DateRange';
+import MyDate from './components/Date/MyDate';
 import DateRangePicker from './components/Date/DateRangewPicker';
+import RecipesPage from './components/RecipesPage/RecipesPage';
 
 function App() {
   const dispatch = useDispatch();

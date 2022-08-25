@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import { Button, CardBody, CardText, CardTitle, Modal, ModalBody, ModalFooter } from 'reactstrap';
+import {
+  Button, CardBody, CardText, CardTitle, Modal, ModalBody, ModalFooter
+} from 'reactstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -20,10 +22,14 @@ export default function CardRecipes({ recipe }) {
     <>
       <Card
         style={{
+          margin: '10px',
           width: '25rem',
         }}
       >
         <img
+          style={{
+            width: '25rem',
+          }}
           alt="Фото не найдено"
           src={recipe.image}
         />

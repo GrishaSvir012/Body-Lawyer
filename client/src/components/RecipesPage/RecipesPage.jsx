@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Col, Form, Input, InputGroup, Row } from 'reactstrap';
+import {
+  Button, Col, Form, Input, InputGroup, Row
+} from 'reactstrap';
 import { getRecipeAction, recipesAction } from '../../Redux/actions/recipeActions';
 import CardRecipes from './CardRecipes';
+import NewRecipe from './NewRecipe';
 
 export default function RecipesPage() {
   const [input, setInput] = useState('');
@@ -36,7 +39,7 @@ export default function RecipesPage() {
       </Form>
       <div className="recipesList" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
         {recipes.map((el) => (
-          <CardRecipes key={el.id} recipe={el} />
+          <NewRecipe key={el.id} recipe={el} />
         ))}
       </div>
     </Row>
