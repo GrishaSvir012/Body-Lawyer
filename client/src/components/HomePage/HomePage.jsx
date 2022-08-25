@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Col, Row } from 'reactstrap';
 import Button from '@mui/material/Button';
 import ChatPage from '../Chat/ChatPage';
@@ -6,6 +6,8 @@ import apple from './apple.svg';
 import NavBar from '../NavBar/NavBar';
 
 export default function HomePage() {
+  const myRef = useRef(null);
+  const executeScroll = () => myRef.current.scrollIntoView();
   return (
     <>
       <Row className="firstRow">
@@ -21,12 +23,13 @@ export default function HomePage() {
               иммунитет — об остальном позаботится адвокат
             </Row>
             <Row className="button">
-              <Button id="button" variant="contained">хочу попробовать</Button>
+              <Button className="testButton" id="button" variant="contained" onClick={executeScroll}>узнать подробнее</Button>
             </Row>
           </div>
         </Col>
       </Row>
       <Row className="secondRow">
+        <div style={{ position: 'absolute' }} ref={myRef} />
         <Col>
           <div className="secondRowTitle">
             <h1>

@@ -58,14 +58,14 @@ function NavBar() {
                 </>
               )
               : (
-                <>
+                <div className="registrationBlock">
                   <Button className="registration">
                     <Link to="/signup">зарегистрироваться</Link>
                   </Button>
                   <Button className="registration">
                     <Link to="/signin">войти</Link>
                   </Button>
-                </>
+                </div>
               ) }
 
           </Typography>
