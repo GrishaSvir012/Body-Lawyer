@@ -42,7 +42,6 @@ const sessionParser = session({
 });
 
 app.use(sessionParser);
-
 app.use('/api/user', userRouter);
 app.use('/api/user/body', bodyRouter);
 app.use('/api/insertyourfood', insetFoodRouter);

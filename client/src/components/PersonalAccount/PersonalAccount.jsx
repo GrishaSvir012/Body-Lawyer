@@ -75,7 +75,7 @@ export default function PersonalAccount() {
 
     <Row className="personalAccountRow">
       <div className="personalAccount">
-        <UserInfoBlock user={user} />
+        <UserInfoBlock />
 
         <Col
           className="diary"
