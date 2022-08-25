@@ -17,6 +17,7 @@ const bodyRouter = require('./routes/bodyRouter');
 const recipeRouter = require('./routes/recipeRouter');
 const insetFoodRouter = require('./routes/insertFoodRouter');
 const statisticRouter = require('./routes/statisticRouter');
+const authCheck = require('./middlewares/authCheck');
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -39,6 +40,7 @@ const sessionParser = session({
 });
 
 app.use(sessionParser);
+
 app.use('/api/user', userRouter);
 app.use('/api/user/body', bodyRouter);
 app.use('/api/insertyourfood', insetFoodRouter);

@@ -18,6 +18,7 @@ import MyDateRange from './components/Date/DateRange';
 import MyDate from './components/Date/MyDate';
 import DateRangePicker from './components/Date/DateRangewPicker';
 import RecipesPage from './components/RecipesPage/RecipesPage';
+import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -55,13 +56,14 @@ function App() {
           )}
         />
         <Route path="/" element={<HomePage />} />
-        <Route path="/date" element={<MyDate />} />
+        <Route path="/date" element={<AuthProtect><MyDate /></AuthProtect>} />
         {/* <Route path="/dateRange" element={<MyDateRange />} />
         <Route path="/dateRangePicker" element={<DateRangePicker />} /> */}
-        <Route path="/user/body" element={<CalculateKkal />} />
-        <Route path="/personalaccount" element={<PersonalAccount />} />
-        <Route path="/personalaccount/statistics" element={<Statistics />} />
+        <Route path="/user/body" element={<AuthProtect><CalculateKkal /></AuthProtect>} />
+        <Route path="/personalaccount" element={<AuthProtect><PersonalAccount /></AuthProtect>} />
+        <Route path="/personalaccount/statistics" element={<AuthProtect><Statistics /></AuthProtect>} />
         <Route path="/recipes" element={<RecipesPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Container>
   );
