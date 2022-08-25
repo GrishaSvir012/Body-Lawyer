@@ -1,5 +1,7 @@
-import React from 'react';
-import { Row, Col, Breadcrumb, BreadcrumbItem, Form, Input } from 'reactstrap';
+import React, { useEffect, useRef, useState } from 'react';
+import {
+  Row, Col, Breadcrumb, BreadcrumbItem, Form, Input
+} from 'reactstrap';
 import Button from '@mui/material/Button';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -7,8 +9,54 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { useNavigate } from 'react-router-dom';
+import { addDays } from 'date-fns';
+import { DateRangePicker } from 'react-date-range';
+import axios from 'axios';
+import format from 'date-fns/format';
+import Statistic from '../Statistic/Statistic';
+import 'react-date-range/dist/styles.css';
+import 'react-date-range/dist/theme/default.css';
 
 export default function Statistics() {
+  const navigate = useNavigate();
+  const backHandler = () => {
+    navigate('/personalaccount');
+  };
+
+  const [stat, setStat] = useState([]);
+  console.log(stat, '________STAT');
+  const [range, setRange] = useState([
+    {
+      startDate: new Date(),
+      endDate: addDays(new Date(), 7),
+      key: 'selection',
+    },
+  ]);
+  useEffect(() => {
+    axios.get(`/statistics?start=${range[0].startDate.toLocaleString('en-ZA', {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+    })}&end=${range[0].endDate.toLocaleString('en-ZA', {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+    })}`).then((res) => setStat(res.data));
+  }, [range]);
+  const [open, setOpen] = useState(false);
+  const refOne = useRef(null);
+  console.log(range);
+
+  const hideOnClickOutSide = (e) => {
+    if (refOne.current && !refOne.current.contains(e.target)) {
+      setOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', hideOnClickOutSide, true);
+  }, []);
   return (
     <Row className="personalAccountRow">
       <div className="personalAccount">
@@ -19,8 +67,10 @@ export default function Statistics() {
           <Row
             className="avatar"
           >
-            <img src="https://wl-adme.cf.tsp.li/resize/728x/jpg/828/489/b2756c5cdd8b6216f063d69448.jpg" alt="img" />
-
+            <div
+              className="img"
+              style={{ background: 'url(https://n1s1.hsmedia.ru/af/f0/de/aff0dee82ae8778d2f88e30ac6254a67/400x600_0x0a330ca2_20593006671527601517.jpeg) no-repeat 50% 50%' }}
+            />
           </Row>
           <Row className="userInfoList">
             <div>
@@ -41,7 +91,7 @@ export default function Statistics() {
             </div>
           </Row>
           <Row className="buttonsUser">
-            <Button id="button" variant="contained">назад</Button>
+            <Button onClick={backHandler} id="button" variant="contained">назад</Button>
             <Button id="button" variant="contained">выход</Button>
           </Row>
         </Col>
@@ -50,14 +100,14 @@ export default function Statistics() {
           xs="8"
         >
           <Row className="diaryRow">
-            <Row>
+            {/* <Row>
               <Col>
                 статистика
               </Col>
-            </Row>
+            </Row> */}
             <Row className="buttonPeriod">
               <div>
-                <Breadcrumb>
+                {/* <Breadcrumb>
                   <BreadcrumbItem>
                     <a href="#">
                       за текущий день
@@ -73,12 +123,33 @@ export default function Statistics() {
                       за месяц
                     </a>
                   </BreadcrumbItem>
-                </Breadcrumb>
+                </Breadcrumb> */}
+                <input
+                  value={`${format(range[0].startDate, 'MM/dd/yyyy')} to ${format(range[0].endDate, 'MM/dd/yyyy')}`}
+                  readOnly
+                  className="inputBox"
+                  // eslint-disable-next-line no-shadow
+                  onClick={() => setOpen((open) => !open)}
+                />
+                <div ref={refOne}>
+                  {open
+      && (
+        <DateRangePicker
+          onChange={(item) => setRange([item.selection])}
+          editableDateInputs
+          moveRangeOnFirstSelection={false}
+          ranges={range}
+          months={2}
+          direction="horizontal"
+          className="calendarElement"
+        />
+      )}
+                </div>
               </div>
             </Row>
             <Row>
               <div className="blockStat">
-                тут будет статистика
+                <Statistic stat={stat} />
               </div>
             </Row>
           </Row>

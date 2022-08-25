@@ -14,9 +14,10 @@ import SignIn from './components/Registration/SignIn';
 import SignUp from './components/Registration/SignUp';
 import PersonalAccount from './components/PersonalAccount/PersonalAccount';
 import Statistics from './components/PersonalAccount/Statistics';
-import MyDate from './components/Date/MyDate';
 import MyDateRange from './components/Date/DateRange';
+import MyDate from './components/Date/MyDate';
 import DateRangePicker from './components/Date/DateRangewPicker';
+import RecipesPage from './components/RecipesPage/RecipesPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -43,7 +44,7 @@ function App() {
             <AuthProtect>
               <SignIn />
             </AuthProtect>
-        )}
+          )}
         />
         <Route
           path="/signup"
@@ -51,7 +52,7 @@ function App() {
             <AuthProtect>
               <SignUp />
             </AuthProtect>
-      )}
+          )}
         />
         <Route path="/" element={<HomePage />} />
         <Route path="/date" element={<MyDate />} />
@@ -60,7 +61,7 @@ function App() {
         <Route path="/user/body" element={<CalculateKkal />} />
         <Route path="/personalaccount" element={<PersonalAccount />} />
         <Route path="/personalaccount/statistics" element={<Statistics />} />
-
+        <Route path="/recipes" element={<RecipesPage />} />
       </Routes>
     </Container>
   );

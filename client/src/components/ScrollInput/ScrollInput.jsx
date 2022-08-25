@@ -68,7 +68,7 @@ export default function FreeSoloCreateOption() {
       }}
       freeSolo
       renderInput={(params) => (
-        <TextField {...params} label="Выберите продукт" />
+        <TextField {...params} label="выберите продукт" />
       )}
     />
   );
