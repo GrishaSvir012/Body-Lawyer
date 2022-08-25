@@ -4,7 +4,6 @@ import {
 } from 'reactstrap';
 import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Calendar } from 'react-date-range';
 import format from 'date-fns/format';
@@ -31,6 +30,7 @@ export default function PersonalAccount() {
 
   const dispatch = useDispatch();
   console.log(personInfo, 'personInfo');
+  console.log(allProduct, 'allProduct');
 
   useEffect(() => {
     dispatch(getUserBodyGet());
@@ -167,7 +167,8 @@ export default function PersonalAccount() {
             </Row>
             <Row className="sumKkal">
               <div>
-                сумма калорий за день
+                общее количество ККАЛ:
+                {allProduct.map((el) => el.reduce((acc, ell) => ell.sum_kkal + acc, 0))}
               </div>
             </Row>
           </Row>

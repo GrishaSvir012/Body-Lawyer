@@ -1,7 +1,6 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
-import axios from 'axios';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Box } from '@mui/material';
@@ -20,8 +19,6 @@ export default function FreeSoloCreateOption() {
       dispatch(getProductsAction(value));
     }
   }, [value]);
-
-  // console.log(allProduct, 'allproduct!!!!');
 
   return (
     <Autocomplete
