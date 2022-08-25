@@ -13,6 +13,7 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import FormProducts from '../FormProducts/FormProducts';
 import { allProductGetAction } from '../../Redux/actions/allProductAction';
+import UserInfoBlock from './UserInfoBlock';
 
 export default function PersonalAccount() {
   const person = useSelector((state) => state.body);
@@ -59,80 +60,16 @@ export default function PersonalAccount() {
   const changeHandler = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
-  const navigate = useNavigate();
-  const statHandler = () => {
-    navigate('/personalaccount/statistics');
-  };
+  // const navigate = useNavigate();
+  // const statHandler = () => {
+  //   navigate('/personalaccount/statistics');
+  // };
   return (
 
     <Row className="personalAccountRow">
       <div className="personalAccount">
-        <Col
-          className="userInfo"
-          xs="2"
-        >
-          <Row
-            className="avatar"
-          >
-            <div
-              className="img"
-              style={{ background: `url('http://localhost:3001${user.img}') no-repeat 50% 50%` }}
-            />
-            {/* <img src={`http://localhost:3001${user.img}`} alt="img" /> */}
-            {/* <img src="https://wl-adme.cf.tsp.li/resize/728x/jpg/828/489/b2756c5cdd8b6216f063d69448.jpg" alt="img" /> */}
-          </Row>
-          <Row className="userInfoList">
-            <div>
-              <ul>
-                <li>
-                  имя:
-                  {' '}
-                  {user.name}
-                </li>
-                {user.body
-                && (
-                  <>
-                    <li>
-                      вес:
-                      {' '}
-                      {user.body.weigth}
-                      {' '}
-                      кг
-                    </li>
-                    <li>
-                      рост:
-                      {' '}
-                      {user.body.height}
-                      {' '}
-                      см
-                    </li>
-                    <li>
-                      цель:
-                      {' '}
-                      {user.body.mission === 'gain'
-                      && 'Набрать вес'}
-                      {user.body.mission === 'save'
-                      && 'Сохранить вес'}
-                      {user.body.mission === 'slim'
-                      && 'Похудеть'}
-                    </li>
-                    <li>
-                      Норма ККАЛ:
-                      {' '}
-                      {person[0]}
-                    </li>
-                  </>
-                )}
-              </ul>
-            </div>
-          </Row>
-          <Row className="buttonsUser">
+        <UserInfoBlock user={user} />
 
-            <Button className="stat" id="button" variant="contained" onClick={statHandler}>статистика</Button>
-            <Button className="exit" id="button" variant="contained">выход</Button>
-
-          </Row>
-        </Col>
         <Col
           className="diary"
           xs="8"
@@ -219,7 +156,6 @@ export default function PersonalAccount() {
             <Row className="productListRow">
               <div className="productList">
                 <FormProducts product={product} />
-
               </div>
             </Row>
             <Row className="sumKkal">

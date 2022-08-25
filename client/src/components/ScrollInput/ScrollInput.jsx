@@ -63,9 +63,9 @@ export default function FreeSoloCreateOption() {
           {option.food_name}
         </Box>
       )}
-      sx={{
-        width: 'mix-content',
-      }}
+      // sx={{
+      //   width: 'mix-content',
+      // }}
       freeSolo
       renderInput={(params) => (
         <TextField {...params} label="выберите продукт" />

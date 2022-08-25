@@ -17,6 +17,7 @@ import format from 'date-fns/format';
 import Statistic from '../Statistic/Statistic';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
+import UserInfoBlock from './UserInfoBlock';
 
 export default function Statistics() {
   const navigate = useNavigate();
@@ -60,54 +61,26 @@ export default function Statistics() {
   return (
     <Row className="personalAccountRow">
       <div className="personalAccount">
-        <Col
-          className="userInfo"
-          xs="2"
-        >
-          <Row
-            className="avatar"
-          >
-            <div
-              className="img"
-              style={{ background: 'url(https://n1s1.hsmedia.ru/af/f0/de/aff0dee82ae8778d2f88e30ac6254a67/400x600_0x0a330ca2_20593006671527601517.jpeg) no-repeat 50% 50%' }}
-            />
-          </Row>
-          <Row className="userInfoList">
-            <div>
-              <ul>
-                <li>
-                  имя: Анна
-                </li>
-                <li>
-                  вес: 60 кг
-                </li>
-                <li>
-                  рост: 170 см
-                </li>
-                <li>
-                  цель: похудеть
-                </li>
-              </ul>
-            </div>
-          </Row>
-          <Row className="buttonsUser">
-            <Button onClick={backHandler} id="button" variant="contained">назад</Button>
-            <Button id="button" variant="contained">выход</Button>
-          </Row>
-        </Col>
+        <UserInfoBlock />
         <Col
           className="diary"
           xs="8"
         >
           <Row className="diaryRow">
-            {/* <Row>
+            <Row className="titleAndInput">
+              <Col className="titleDiary">
+                твоя статистика питания
+              </Col>
+              <Col className="inputCol">
+
+                {/* <Row>
               <Col>
                 статистика
               </Col>
             </Row> */}
-            <Row className="buttonPeriod">
-              <div>
-                {/* <Breadcrumb>
+                <Row className="buttonPeriod">
+                  <div>
+                    {/* <Breadcrumb>
                   <BreadcrumbItem>
                     <a href="#">
                       за текущий день
@@ -124,15 +97,15 @@ export default function Statistics() {
                     </a>
                   </BreadcrumbItem>
                 </Breadcrumb> */}
-                <input
-                  value={`${format(range[0].startDate, 'MM/dd/yyyy')} to ${format(range[0].endDate, 'MM/dd/yyyy')}`}
-                  readOnly
-                  className="inputBox"
-                  // eslint-disable-next-line no-shadow
-                  onClick={() => setOpen((open) => !open)}
-                />
-                <div ref={refOne}>
-                  {open
+                    <Input
+                      value={`${format(range[0].startDate, 'MM/dd/yyyy')} to ${format(range[0].endDate, 'MM/dd/yyyy')}`}
+                      readOnly
+                      className="inputBox"
+                      // eslint-disable-next-line no-shadow
+                      onClick={() => setOpen((open) => !open)}
+                    />
+                    <div ref={refOne} className="openCalendar2">
+                      {open
       && (
         <DateRangePicker
           onChange={(item) => setRange([item.selection])}
@@ -144,13 +117,15 @@ export default function Statistics() {
           className="calendarElement"
         />
       )}
-                </div>
-              </div>
+                    </div>
+                  </div>
+                </Row>
+              </Col>
             </Row>
-            <Row>
-              <div className="blockStat">
-                <Statistic stat={stat} />
-              </div>
+            <Row className="productListRow" id="statistic">
+
+              <Statistic stat={stat} />
+
             </Row>
           </Row>
         </Col>

@@ -42,24 +42,20 @@ function App() {
         <Route
           path="/signin"
           element={(
-            <AuthProtect>
-              <SignIn />
-            </AuthProtect>
+            <SignIn />
           )}
         />
         <Route
           path="/signup"
           element={(
-            <AuthProtect>
-              <SignUp />
-            </AuthProtect>
+            <SignUp />
           )}
         />
         <Route path="/" element={<HomePage />} />
         <Route path="/date" element={<AuthProtect><MyDate /></AuthProtect>} />
         {/* <Route path="/dateRange" element={<MyDateRange />} />
         <Route path="/dateRangePicker" element={<DateRangePicker />} /> */}
-        <Route path="/user/body" element={<AuthProtect><CalculateKkal /></AuthProtect>} />
+        <Route path="/user/body" element={<CalculateKkal />} />
         <Route path="/personalaccount" element={<AuthProtect><PersonalAccount /></AuthProtect>} />
         <Route path="/personalaccount/statistics" element={<AuthProtect><Statistics /></AuthProtect>} />
         <Route path="/recipes" element={<RecipesPage />} />

@@ -10,6 +10,7 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { useEffect } from 'react';
+import { Col, Row } from 'reactstrap';
 import { userStatAdd } from '../../Redux/actions/statisticsAction';
 
 ChartJS.register(Title, BarElement, LinearScale, CategoryScale, ArcElement, Tooltip, Legend);
@@ -68,15 +69,20 @@ export default function Statistic({ stat }) {
   };
 
   return (
-    <div>
-      <h1>
-        Ваша статика:
-      </h1>
-      <div style={{ width: '700px' }}>
-        {/* <Doughnut data={data} /> */}
-        <Bar options={options} data={data} />
-      </div>
-    </div>
+    <Row className="twoStat">
+      <Col>
+        <div style={{ width: '700px' }} className="imgStat">
+          {/* <Doughnut data={data} /> */}
+          <Bar options={options} data={data} />
+        </div>
+      </Col>
+      <Col>
+        <div style={{ width: '700px' }}>
+          {/* <Doughnut data={data} /> */}
+          <Bar options={options} data={data} />
+        </div>
+      </Col>
+    </Row>
   );
 }
 
