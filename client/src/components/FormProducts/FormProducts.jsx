@@ -14,10 +14,6 @@ export default function FormProducts() {
   return (
     <TableContainer>
       <Table>
-        {/* sx={{
-                     height: 'max-content',
-                   }} */}
-
         <TableHead>
           <TableRow>
             <TableCell>#</TableCell>

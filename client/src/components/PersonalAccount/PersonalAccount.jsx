@@ -30,6 +30,7 @@ export default function PersonalAccount() {
 
   const dispatch = useDispatch();
   console.log(personInfo, 'personInfo');
+  console.log(allProduct, 'allProduct');
 
   useEffect(() => {
     dispatch(getUserBodyGet());
@@ -66,10 +67,12 @@ export default function PersonalAccount() {
   const changeHandler = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
   const navigate = useNavigate();
   const statHandler = () => {
     navigate('/personalaccount/statistics');
   };
+
   return (
 
     <Row className="personalAccountRow">
@@ -85,8 +88,6 @@ export default function PersonalAccount() {
               className="img"
               style={{ background: `url('http://localhost:3001${user.img}') no-repeat 50% 50%` }}
             />
-            {/* <img src={`http://localhost:3001${user.img}`} alt="img" /> */}
-            {/* <img src="https://wl-adme.cf.tsp.li/resize/728x/jpg/828/489/b2756c5cdd8b6216f063d69448.jpg" alt="img" /> */}
           </Row>
           <Row className="userInfoList">
             <div>
@@ -126,7 +127,8 @@ export default function PersonalAccount() {
                     <li>
                       Норма ККАЛ:
                       {' '}
-                      {/* {person[0]} */}
+                      {personInfo.length > 0
+                       && personInfo[0].calories_needed}
                     </li>
                   </>
                 )}
@@ -231,7 +233,8 @@ export default function PersonalAccount() {
             </Row>
             <Row className="sumKkal">
               <div>
-                сумма калорий за день
+                общее количество ККАЛ:
+                {allProduct.map((el) => el.reduce((acc, ell) => ell.sum_kkal + acc, 0))}
               </div>
             </Row>
           </Row>
