@@ -4,6 +4,7 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const cors = require('cors');
 // ws part
+const morgan = require('morgan');
 const http = require('http');
 const wss = require('./webSocket');
 
@@ -19,6 +20,7 @@ const insetFoodRouter = require('./routes/insertFoodRouter');
 const statisticRouter = require('./routes/statisticRouter');
 const authCheck = require('./middlewares/authCheck');
 
+app.use(morgan('dev'));
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

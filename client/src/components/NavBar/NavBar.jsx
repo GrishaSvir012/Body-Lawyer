@@ -44,17 +44,14 @@ function NavBar() {
             </Button>
             { user.id
               ? (
-                <div className="registrationBlock">
+                <>
                   <Button className="LK">
                     <Link to="personalaccount">Личный кабинет</Link>
                   </Button>
                   <Button className="registration" onClick={logoutHandler}>
                     <Link to="/">выход</Link>
                   </Button>
-                  <Button className="LK">
-                    <Link to="personalaccount">Личный кабинет</Link>
-                  </Button>
-                </div>
+                </>
               )
               : (
                 <div className="registrationBlock">
@@ -78,48 +75,3 @@ function NavBar() {
 }
 
 export default NavBar;
-
-// это гришин navbar
-/* <div>
-      <Navbar color="dark" light expand="md">
-        <NavbarBrand style={{ color: ws ? 'green' : 'red' }}>
-          Адвокат!
-        </NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink className="nav-link" to="/">chat</NavLink>
-            </NavItem>
-            {user.id
-              ? (
-                <>
-                  <NavItem>
-                    <span className="nav-link">
-                      Hello,
-                      {' '}
-                      {user.name}
-                    </span>
-                  </NavItem>
-                  <NavItem>
-                    <Button onClick={logoutHandler} color="primary" outline className="nav-link">
-                      logout
-                    </Button>
-                  </NavItem>
-                </>
-              )
-              : (
-                <>
-                  <NavItem>
-                    <NavLink className="nav-link" to="/signup">signup</NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink className="nav-link" to="/signin">signin</NavLink>
-                  </NavItem>
-                </>
-              )}
-
-          </Nav>
-        </Collapse>
-      </Navbar>
-    </div> */
