@@ -51,6 +51,9 @@ function NavBar() {
                   <Button className="registration" onClick={logoutHandler}>
                     <Link to="/">выход</Link>
                   </Button>
+                  <Button className="LK">
+                    <Link to="personalaccount">Личный кабинет</Link>
+                  </Button>
                 </div>
               )
               : (

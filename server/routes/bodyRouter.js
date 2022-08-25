@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User_body } = require('../db/models');
+const { User_body, User } = require('../db/models');
 
 router.post('/', async (req, res) => {
   const {
@@ -30,10 +30,12 @@ router.post('/', async (req, res) => {
   let calories;
   if (req.body.gender === 'male') {
     calories = Math.round(
-      (10 * req.body.weigth + 6.25 * req.body.height - 5 * req.body.age + 5) * req.body.activity);
+      (10 * req.body.weigth + 6.25 * req.body.height - 5 * req.body.age + 5) * req.body.activity
+    );
   } else {
     calories = Math.round(
-      (10 * req.body.weigth + 6.25 * req.body.height - 5 * req.body.age - 161) * req.body.activity);
+      (10 * req.body.weigth + 6.25 * req.body.height - 5 * req.body.age - 161) * req.body.activity
+    );
   }
 
   const bodyData = await User_body.create({
@@ -53,5 +55,27 @@ router.post('/', async (req, res) => {
   console.log('bodyData------>>', bodyData);
   res.json(bodyData);
 });// ручка запись в базу данных о состоянии тела и рассчет нормы калорий
+
+router.get('/userStat', async (req, res) => {
+  // eslint-disable-next-line prefer-const
+  try {
+    const info = await User_body.findAll(
+      {
+        where: {
+          user_id: req.session.user.id
+        },
+        include: [
+          {
+            model: User
+          }
+        ]
+      }
+    );
+    console.log(info, 'info for User_bodies');
+    res.json(info);
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 module.exports = router;
