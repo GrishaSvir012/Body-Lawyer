@@ -1,0 +1,37 @@
+.b-error-page__img-text {
+    display: inline-block;
+    font-size: 320px;
+    margin: 0 10px;
+    height: 300px;
+    vertical-align: middle;
+}
+
+.b-error-page__img-pic {
+    width: 308px;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.b-error-page__img-pic_1:before {
+    display: block;
+    background-image: url(https://av.ru/_ui/desktop/common/images/not-found-1.png);
+}
+
+.b-error-page__img {
+    font-size: 0;
+    font-family: Gill Sans MT Pro Cyr W04 Light,sans-serif;
+    color: #81bc3d;
+    margin: 0 0 8px;
+    line-height: 300px;
+}
+.b-error-page {
+    padding-bottom: 50px;
+    margin-top: 15%;
+    text-align: center;
+}
+
+img {
+    height: 270px;
+    margin-bottom:1em
+}
