@@ -128,3 +128,14 @@ ul {
   content: counter(item) ".";
   margin-right: 8px;
 }
+
+.input-task {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-right: 23vw;
+}
+
+.knopka {
+  height: 55.97px !important;
+}
