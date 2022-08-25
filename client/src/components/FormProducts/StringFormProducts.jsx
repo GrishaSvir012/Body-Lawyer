@@ -10,12 +10,12 @@ export default function StringFormProducts(
   },
 ) {
   const allProduct = useSelector((state) => state.allProduct);
-  console.log(item, 'item');
   return (
     <TableBody>
       <TableRow>
         <TableCell>{num}</TableCell>
         <TableCell align="center">{food_name}</TableCell>
+        <TableCell align="center">{weight}</TableCell>
         <TableCell align="center">{calories}</TableCell>
         <TableCell align="center">{protein}</TableCell>
         <TableCell align="center">{fats}</TableCell>

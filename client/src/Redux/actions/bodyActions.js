@@ -7,9 +7,3 @@ export const userBodyAdd = (data) => (dispatch) => {
     .then((res) => dispatch({ type: ADD_BODY, payload: res.data }))
     .catch((err) => console.log(err));
 };
-
-export const userBodyGet = () => (dispatch) => {
-  axios.post('/userStat')
-    .then((res) => dispatch({ type: GET_USER_BODY, payload: res.data }))
-    .catch((err) => console.log(err));
-};

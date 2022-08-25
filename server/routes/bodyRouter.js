@@ -52,12 +52,12 @@ router.post('/', async (req, res) => {
     carbohidrates_needed: carbohidrates,
 
   });
-  console.log('bodyData------>>', bodyData);
   res.json(bodyData);
 });// ручка запись в базу данных о состоянии тела и рассчет нормы калорий
 
 router.get('/userStat', async (req, res) => {
   // eslint-disable-next-line prefer-const
+  console.log(req.session.user, 'req.session.user');
   try {
     const info = await User_body.findAll(
       {

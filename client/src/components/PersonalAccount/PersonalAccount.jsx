@@ -13,9 +13,11 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import FormProducts from '../FormProducts/FormProducts';
 import { allProductGetAction } from '../../Redux/actions/allProductAction';
+import { getUserBodyGet } from '../../Redux/actions/getBodyAction';
 
 export default function PersonalAccount() {
   const person = useSelector((state) => state.body);
+  const personInfo = useSelector((state) => state.getBodyInfo);
   const user = useSelector((state) => state.user);
   const allProduct = useSelector((state) => state.products);
   const [input, setInput] = useState('');
@@ -27,6 +29,11 @@ export default function PersonalAccount() {
   const refOne = useRef(null);
 
   const dispatch = useDispatch();
+  console.log(personInfo, 'personInfo');
+
+  useEffect(() => {
+    dispatch(getUserBodyGet());
+  }, []);
 
   const handleSelect = (date) => {
     setCalendar(format(date, 'yyyy/MM/dd'));
@@ -119,7 +126,7 @@ export default function PersonalAccount() {
                     <li>
                       Норма ККАЛ:
                       {' '}
-                      {person[0]}
+                      {/* {person[0]} */}
                     </li>
                   </>
                 )}
