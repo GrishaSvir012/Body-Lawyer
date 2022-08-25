@@ -71,7 +71,7 @@
 }
 
 
-ul.checkmark li:before {
+ul.checkmark .liIn:before {
     color: #455560;
     content:"\2713\0020";
     font-weight: 600;
@@ -79,11 +79,11 @@ ul.checkmark li:before {
     margin-right: 10px;
 }
 
-.checkmark li {
+.checkmark .liIn {
   list-style-type: none;
 }
 
-li {
+.liIn {
   margin-bottom: 3px;
 }
 
@@ -112,7 +112,7 @@ li {
   background-repeat: no-repeat !important;
 }
 
-ul {
+.recList {
   padding-left: 65px !important;
   font-family: fantasy;
   counter-reset: item;
@@ -127,4 +127,15 @@ ul {
   font-weight: bold;
   content: counter(item) ".";
   margin-right: 8px;
+}
+
+.input-task {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-right: 23vw;
+}
+
+.knopka {
+  height: 55.97px !important;
 }

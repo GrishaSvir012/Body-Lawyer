@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -25,15 +26,31 @@ export default function RecipesPage() {
     <Row className="recipesRow">
       <Form className="formInputRecipes" onSubmit={submitHandler}>
         <InputGroup className="input-task">
-          <Input
+          {/* <Input
             type="text"
             name="post"
             value={input}
             onChange={inputHandler}
             placeholder="write here..."
+          /> */}
+          <TextField
+            type="text"
+            name="name"
+            value={input}
+            onChange={inputHandler}
+            id="outlined-basic"
+            label="ввести продукт"
+            variant="outlined"
           />
-          <Button type="submit" color="success">
-            Ввод
+          <Button
+            className="knopka"
+            type="submit"
+            id="button"
+            variant="contained"
+          >
+
+            получить рецепты
+
           </Button>
         </InputGroup>
       </Form>

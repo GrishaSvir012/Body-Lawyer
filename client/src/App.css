@@ -188,7 +188,7 @@ a {
 }
 
 .titleForm{
-    font-family: 'Jost', sans-serif;
+    font-family: 'Comfortaa', cursive;
     width: 500px;
     font-size: 32px;
 }
@@ -210,7 +210,7 @@ a {
 }
 
 .fileUpload {
-    width: 500px;
+    width: 650px;
 }
 
 
@@ -260,17 +260,10 @@ a {
 
 .diaryRow {
     width: 97%;
-    display: flex;
-    justify-content: center;  
-    flex-wrap: wrap; 
-
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
 }
-
-.diaryRow .row {
-    width: 100%;
-}
-
-
 
 .avatar {
     justify-content: center;
@@ -330,8 +323,9 @@ a {
     display: flex;
     align-items: center;
     background-color: rgba(47, 61, 38, 0.49);
-    margin: 20px;
+    height: 10%;
 }
+
 .titleDiary{
     text-align: left;
     font-family: 'Comfortaa', cursive !important;
@@ -351,7 +345,6 @@ a {
 
 .breadcrumb{
     justify-content: center;
-    
 }
 
 .openCalendar{
@@ -359,6 +352,14 @@ a {
     z-index: 2;
     border: 1px solid;
     bottom: 49%;
+    background-color: white;
+}
+.openCalendar2{
+    position: absolute;
+    z-index: 2;
+    border: 1px solid;
+    bottom: 43%;
+    left: 49%;
     background-color: white;
 }
 
@@ -375,15 +376,12 @@ a {
     color: rgb(0, 0, 0) !important;
 }
 
-
 .breadcrumb-item+.breadcrumb-item::before{
     float: none !important;
     font-size: 20px;
 }
-
-
 .buttonMeals{
-    height: 50px;
+    height: 6%;
     background-color: #D9D9D9 !important;
 }
 .formProducts{
@@ -404,10 +402,8 @@ a {
 }
 
 
-
 .css-1q60rmi-MuiAutocomplete-endAdornment {
     top: 0% !important;
-    
 }
 
 .inputGramm{
@@ -417,15 +413,21 @@ a {
 }
 
 .productListRow{
-    width: 100%;
+    height: 50% !important;
     background-color: white;
     align-items: center;
-    margin-top: -48px !important;
+    /* margin-top: -48px !important; */
 }
 .productList {
     width: 100%;
     background-color: white;
-    height: 100%;
+    height: 400px;
+    overflow: auto;
+}
+
+.tableHead {
+    position: sticky !important;
+    top: 0 !important;
 }
 
 .blockStat {
@@ -433,12 +435,12 @@ a {
     height: 500px;
 }
 .inputProducts {
-    height: 100px;
+    /* margin-top: -178px !important; */
+    height: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(47, 61, 38, 0.49);
-    margin-top: -55px !important;
 }
 
 .inputProducts button {
@@ -456,11 +458,51 @@ a {
     font-size: 18px;
     background-color: rgba(47, 61, 38, 0.49);
     /* height: 60px; */
-    margin-top: 20px !important;
+    /* margin-top: 20px !important; */
+    height: 10%;
 }
 
 .sumKkal div {
     display: flex;
     align-items: center;
     
+}
+
+
+#statistic {
+    height: 85% !important;
+}
+
+.twoStat{
+    height: inherit !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.twoStat .col {
+    display: flex;
+    width: 50% !important;
+    align-items: center !important;
+    height: 100%;
+}
+
+.imgStat img{
+    height: 100%;
+    width: 100% !important;
+}
+
+.inputReg {
+    display: flex !important;
+    justify-content: center;
+    width: 71%;
+}
+
+#button .buttonReg{
+    width: 47% !important;
+}
+
+.MuiInputBase-root {
+    width: 100%;
 }

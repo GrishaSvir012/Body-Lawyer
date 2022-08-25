@@ -1,6 +1,5 @@
-import React, { Component, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Grid from '@mui/material/Grid';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Container } from 'reactstrap';
 import HomePage from './components/HomePage/HomePage';
@@ -14,9 +13,7 @@ import SignIn from './components/Registration/SignIn';
 import SignUp from './components/Registration/SignUp';
 import PersonalAccount from './components/PersonalAccount/PersonalAccount';
 import Statistics from './components/PersonalAccount/Statistics';
-import MyDateRange from './components/Date/DateRange';
 import MyDate from './components/Date/MyDate';
-import DateRangePicker from './components/Date/DateRangewPicker';
 import RecipesPage from './components/RecipesPage/RecipesPage';
 import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 

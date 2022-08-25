@@ -35,29 +35,30 @@ function NavBar() {
               textDecoration: 'none',
             }}
           >
-            <Button
-              className="logo"
-              style={{ color: ws ? 'green' : 'red' }}
-            >
-              <Link to="/"><h2>адвокат тела</h2></Link>
-
-            </Button>
+            <div className="cool">
+              <Button
+                className="logo"
+                style={{ color: ws ? 'green' : 'red' }}
+              >
+                <Link to="/"><h2>адвокат тела</h2></Link>
+              </Button>
+              <Button className="registration">
+                <Link className="recipe" to="/recipes">хочу есть</Link>
+              </Button>
+            </div>
             { user.id
               ? (
-                <>
+                <div className="registrationBlock">
                   <Button className="LK">
                     <Link to="personalaccount">Личный кабинет</Link>
                   </Button>
                   <Button className="registration" onClick={logoutHandler}>
                     <Link to="/">выход</Link>
                   </Button>
-                </>
+                </div>
               )
               : (
                 <div className="registrationBlock">
-                  <Button className="registration">
-                    <Link to="/recipes">Найти рецепт</Link>
-                  </Button>
                   <Button className="registration">
                     <Link to="/signup">зарегистрироваться</Link>
                   </Button>
