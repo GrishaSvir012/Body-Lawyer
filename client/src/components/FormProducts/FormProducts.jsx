@@ -1,4 +1,6 @@
-import { TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import {
+  TableBody, TableCell, TableContainer, TableHead, TableRow
+} from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Table } from 'reactstrap';

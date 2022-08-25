@@ -3,20 +3,12 @@ import {
   Row, Col, Breadcrumb, BreadcrumbItem, Form, Input
 } from 'reactstrap';
 import Button from '@mui/material/Button';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Box } from '@mui/material';
 import { Calendar } from 'react-date-range';
 import format from 'date-fns/format';
 import ScrollInput from '../ScrollInput/ScrollInput';
-import MyDate from '../Date/MyDate';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import FormProducts from '../FormProducts/FormProducts';
@@ -29,7 +21,6 @@ export default function PersonalAccount() {
   const [input, setInput] = useState('');
   const [type, setType] = useState(null);
   const [product, setProduct] = useState({});
-<<<<<<< HEAD
   // const [myAllProducts, setMyAllProducts] = useState({});
   const [calendar, setCalendar] = useState('');
   const [open, setOpen] = useState(false);
@@ -37,21 +28,15 @@ export default function PersonalAccount() {
 
   const dispatch = useDispatch();
 
-=======
-  const [calendar, setCalendar] = useState('');
-  const [open, setOpen] = useState(false);
-  const refOne = useRef(null);
-  console.log(calendar, 'dataaaaa');
->>>>>>> 97372c191c2fa82c0d85403c36949ba32f1b8bc8
   const handleSelect = (date) => {
     setCalendar(format(date, 'yyyy/MM/dd'));
-    // console.log(date);
   };
   const hideOnClickOutSide = (e) => {
     if (refOne.current && !refOne.current.contains(e.target)) {
       setOpen(false);
     }
   };
+
   useEffect(() => {
     setCalendar(format(new Date(), 'yyyy/MM/dd'));
     document.addEventListener('click', hideOnClickOutSide, true);
@@ -65,15 +50,12 @@ export default function PersonalAccount() {
       .then((res) => setProduct(res.data))
       .catch((err) => console.log(err));
   };
-<<<<<<< HEAD
 
   useEffect(() => {
     dispatch(allProductGetAction(type, calendar));
   }, [type, calendar, product]);
 
-=======
   console.log(product, 'product in PersAcc');
->>>>>>> 97372c191c2fa82c0d85403c36949ba32f1b8bc8
   const changeHandler = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -142,6 +124,11 @@ export default function PersonalAccount() {
                       {user.body.mission === 'slim'
                       && 'Похудеть'}
                     </li>
+                    <li>
+                      Норма ККАЛ:
+                      {' '}
+                      {person[0]}
+                    </li>
                   </>
                 )}
               </ul>
@@ -187,9 +174,7 @@ export default function PersonalAccount() {
                           )}
                   </div>
                 </>
-                {/* </Box> */}
               </Col>
-              {/* </Box> */}
             </Row>
             <Row className="buttonMeals">
               <div>
