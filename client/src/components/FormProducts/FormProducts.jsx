@@ -18,11 +18,11 @@ export default function FormProducts() {
                      height: 'max-content',
                    }} */}
 
-        <TableHead>
+        <TableHead className="tableHead">
           <TableRow>
             <TableCell>#</TableCell>
             <TableCell align="center">наименование продукта</TableCell>
-            {/* <TableCell align="center">гр</TableCell> */}
+            <TableCell align="center">гр</TableCell>
             <TableCell align="center">к</TableCell>
             <TableCell align="center">б</TableCell>
             <TableCell align="center">ж</TableCell>
@@ -37,11 +37,11 @@ export default function FormProducts() {
             key={el.id}
             item={el}
             weight={el.product_weight}
-            calories={el.Product_info.calories}
-            carbohidrates={el.Product_info.carbohidrates}
-            fats={el.Product_info.fats}
+            calories={el.sum_kkal}
+            carbohidrates={el.sum_carbohidrates}
+            fats={el.sum_fats}
             food_name={el.Product_info.food_name}
-            protein={el.Product_info.protein}
+            protein={el.sum_protein}
           />
         ))}
       </Table>

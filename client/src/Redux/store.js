@@ -11,6 +11,7 @@ import recipeReducer from './reducers/recipeReducer';
 import wsReducer from './reducers/wsReducer';
 import rootSaga from './sagas/rootSaga';
 import statReducer from './reducers/statReducer';
+import getBodyReducer from './reducers/getBodyReducer';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -25,6 +26,7 @@ const store = configureStore({
     products: productsReducer,
     allProduct: allProductsReducer,
     statistics: statReducer,
+    getBodyInfo: getBodyReducer,
   },
   middleware: (getDefaultMiddleware) => [...getDefaultMiddleware(), sagaMiddleware],
 });

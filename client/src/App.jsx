@@ -50,8 +50,6 @@ function App() {
         />
         <Route path="/" element={<HomePage />} />
         <Route path="/date" element={<AuthProtect><MyDate /></AuthProtect>} />
-        {/* <Route path="/dateRange" element={<MyDateRange />} />
-        <Route path="/dateRangePicker" element={<DateRangePicker />} /> */}
         <Route path="/user/body" element={<CalculateKkal />} />
         <Route path="/personalaccount" element={<AuthProtect><PersonalAccount /></AuthProtect>} />
         <Route path="/personalaccount/statistics" element={<AuthProtect><Statistics /></AuthProtect>} />
