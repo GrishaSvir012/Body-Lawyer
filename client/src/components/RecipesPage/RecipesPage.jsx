@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   Button, Col, Form, Input, InputGroup, Row
 } from 'reactstrap';
-import { getRecipeAction, recipesAction } from '../../Redux/actions/recipeActions';
-import CardRecipes from './CardRecipes';
+import { getRecipeAction } from '../../Redux/actions/recipeActions';
 import NewRecipe from './NewRecipe';
+import './newRecipe.css';
 
 export default function RecipesPage() {
   const [input, setInput] = useState('');
@@ -22,8 +22,8 @@ export default function RecipesPage() {
   };
 
   return (
-    <Row>
-      <Form onSubmit={submitHandler}>
+    <Row className="recipesRow">
+      <Form className="formInputRecipes" onSubmit={submitHandler}>
         <InputGroup className="input-task">
           <Input
             type="text"
