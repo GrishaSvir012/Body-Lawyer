@@ -43,11 +43,6 @@ function NavBar() {
             { user.id
               ? (
                 <>
-                  <p className="helloUser">
-                    Hello,
-                    {' '}
-                    {user.name}
-                  </p>
                   <Button className="registration" onClick={logoutHandler}>
                     <Link to="/">выход</Link>
                   </Button>

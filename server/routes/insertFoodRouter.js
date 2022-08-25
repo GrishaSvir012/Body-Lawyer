@@ -4,8 +4,6 @@ const { Op } = require('sequelize');
 const { User_body, Product_info, Daily_food_by_type } = require('../db/models');
 
 router.post('/', async (req, res) => {
-  console.log(req.body, 'req.body in body_calck!');
-  // date,
   const sum_kkal = req.body.calories;
   const sum_protein = req.body.protein;
   const sum_fats = req.body.fats;
@@ -19,21 +17,23 @@ router.post('/', async (req, res) => {
   const sum_protein_to_db = Math.round(sum_protein * (+product_weight / 100));
   const sum_fats_to_db = Math.round(sum_fats * (+product_weight / 100));
   const sum_carbohidrates_to_db = Math.round(+sum_carbohidrates * (+product_weight / 100));
-
-  const dailyFoodData = await Daily_food_by_type.create({
-    date,
-    sum_kkal: sum_kkal_to_db,
-    sum_protein: sum_protein_to_db,
-    sum_fats: sum_fats_to_db,
-    sum_carbohidrates: sum_carbohidrates_to_db,
-    product_weight,
-    type_of_meal_id,
-    product_info_id,
-    user_id: req.session.user.id
-  });
-  console.log(req.session, 'req.session!!!!');
-  console.log(dailyFoodData, 'dailyFoodData!!!!');
-  res.json(dailyFoodData);
+  try {
+    const dailyFoodData = await Daily_food_by_type.create({
+      date,
+      sum_kkal: sum_kkal_to_db,
+      sum_protein: sum_protein_to_db,
+      sum_fats: sum_fats_to_db,
+      sum_carbohidrates: sum_carbohidrates_to_db,
+      product_weight,
+      type_of_meal_id,
+      product_info_id,
+      user_id: req.session.user.id
+    });
+    console.log(dailyFoodData, 'dailyFoodData!!!!');
+    res.json(dailyFoodData);
+  } catch (error) {
+    console.log(error);
+  }
 });// ручка запись в базу данных, записывает съеденную еду и подсчитывает значения
 
 router.post('/input', async (req, res) => {
@@ -49,6 +49,34 @@ router.post('/input', async (req, res) => {
   );
 
   res.json(products);
+});
+router.get('/getAllProduct', async (req, res) => {
+  // eslint-disable-next-line prefer-const
+  let { type, calendar } = req.query;
+  // calendar = new Date(calendar || '');
+  const user_id = req.session.user.id;
+  console.log(req.query, 'ggggggggg!!!');
+  try {
+    // console.log(Daily_food_by_type, 'Daily_food_by_type');
+    const allProducts = await Daily_food_by_type.findAll(
+      {
+        where: {
+          user_id,
+          type_of_meal_id: type,
+          date: calendar
+        },
+        include: [
+          {
+            model: Product_info,
+          }
+        ]
+      }
+    );
+    console.log(allProducts, 'allPruscts in insertFoodRouter');
+    res.json(allProducts);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 module.exports = router;
