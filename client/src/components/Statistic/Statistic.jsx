@@ -11,12 +11,13 @@ import {
 import { Bar } from 'react-chartjs-2';
 import { useEffect } from 'react';
 import { userStatAdd } from '../../Redux/actions/statisticsAction';
+import { getUserBodyGet } from '../../Redux/actions/getBodyAction';
 
 ChartJS.register(Title, BarElement, LinearScale, CategoryScale, ArcElement, Tooltip, Legend);
 
 export default function Statistic({ stat }) {
   console.log(stat, '{{{{EQQE{EQQEJJKEHJIHQEJ');
-
+  const personInfo = useSelector((state) => state.getBodyInfo);
   const dateArr = stat.map((el) => el?.date);
   const dateArrReg = dateArr.map((el) => el.replace(/T21:00:00.000Z/gm, ''));
 
@@ -24,9 +25,13 @@ export default function Statistic({ stat }) {
   const newArrProt = stat.map((el) => el?.total_protein);
   const newArrFats = stat.map((el) => el?.total_fats);
   const newArrCarb = stat.map((el) => el?.total_carbohidrates);
-
-  const labels = dateArrReg;
-
+  const labels = dateArrReg.map((el) => el.replace(/\d*$/, (s) => (`${+s + 1}`)));
+  console.log(labels);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUserBodyGet());
+  }, []);
+  console.log(personInfo, 'personInfo in stat');
   const data = {
 
     labels,
