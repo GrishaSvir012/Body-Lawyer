@@ -42,17 +42,13 @@ function App() {
         <Route
           path="/signin"
           element={(
-            <AuthProtect>
-              <SignIn />
-            </AuthProtect>
+            <SignIn />
           )}
         />
         <Route
           path="/signup"
           element={(
-            <AuthProtect>
-              <SignUp />
-            </AuthProtect>
+            <SignUp />
           )}
         />
         <Route path="/" element={<HomePage />} />
