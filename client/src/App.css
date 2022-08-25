@@ -68,11 +68,32 @@
     margin: 20px;
     box-shadow: 0px 38px 29px #ebffcb96;
 }
-.plate {
-    position: relative;
-    left: -10%;
-    z-index: -1;
-}
+
+/* мигающая кнопка */
+.testButton {
+    background-color: #1c87c9;
+    -webkit-border-radius: 60px;
+    border-radius: 60px;
+    border: none;
+    color: #eeeeee;
+    cursor: pointer;
+    display: inline-block;
+    font-family: sans-serif; 
+    font-size: 20px;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    }
+    @keyframes glowing {
+    0% { background-color: #355030 ; box-shadow: 0 0 5px #355030 ; }
+    50% { background-color: #5a8452; box-shadow: 0 0 20px #5a8452; }
+    100% { background-color: #355030 ; box-shadow: 0 0 5px #355030 ; }
+    }
+    .testButton {
+    animation: glowing 1300ms infinite;
+    }
+
+    /* */
 
 #button {
     font-family: 'Comfortaa', cursive !important;
@@ -208,7 +229,7 @@ a {
 }
 
 .personalAccountRow{
-    height: 100vh;
+    height: calc(100vh - 64px);
 }
 
 .personalAccount{
@@ -221,8 +242,9 @@ a {
 
 .userInfo {
     background-color: rgba(99, 120, 86, 0.49);;
-    height: 70%;
+    height: 90%;
     margin-right: 10px;
+    width: 15% !important;
 }
 
 
@@ -230,13 +252,14 @@ a {
     display: flex !important;
     justify-content: center; 
     background-color: rgba(99, 120, 86, 0.49);
-    height: 70%;
+    height: 90%;
     margin-left: 10px;
     flex-wrap: wrap; 
+    width: 80% !important;
 }
 
 .diaryRow {
-    width: 100%;
+    width: 97%;
     display: flex;
     justify-content: center;  
     flex-wrap: wrap; 
@@ -306,11 +329,14 @@ a {
 .titleAndInput{
     display: flex;
     align-items: center;
+    background-color: rgba(47, 61, 38, 0.49);
+    margin: 20px;
 }
 .titleDiary{
     text-align: left;
     font-family: 'Comfortaa', cursive !important;
-    font-size: 18px;
+    font-size: 24px;
+    color: white;
 }
 .inputCol{
     text-align: right;
@@ -323,16 +349,16 @@ a {
     text-align: center;
 }
 
-
 .breadcrumb{
     justify-content: center;
+    
 }
 
 .openCalendar{
     position: absolute;
     z-index: 2;
     border: 1px solid;
-    bottom: 41%;
+    bottom: 49%;
     background-color: white;
 }
 
@@ -341,7 +367,7 @@ a {
 }
 
 .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
-    color: white !important;
+    color: black !important;
     font-size: 20px !important;
 }
 
@@ -358,10 +384,12 @@ a {
 
 .buttonMeals{
     height: 50px;
+    background-color: #D9D9D9 !important;
 }
 .formProducts{
     justify-content: center;
     display: flex;
+    align-items: center;
 }
 .formProducts button {
     width: 98% !important;
@@ -371,14 +399,15 @@ a {
 .MuiAutocomplete-root{
     width: 1400px;
     height: 55px;
-    margin-bottom: 20px;
     margin-right: 10px;
+    margin-bottom: 0px;
 }
 
 
 
 .css-1q60rmi-MuiAutocomplete-endAdornment {
     top: 0% !important;
+    
 }
 
 .inputGramm{
@@ -386,14 +415,35 @@ a {
     width: 250px;
     margin-right: 10px;
 }
-.productList {
+
+.productListRow{
+    width: 100%;
     background-color: white;
-    height: 300px;
+    align-items: center;
+    margin-top: -48px !important;
+}
+.productList {
+    width: 100%;
+    background-color: white;
+    height: 100%;
 }
 
 .blockStat {
     background-color: white;
     height: 500px;
+}
+.inputProducts {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(47, 61, 38, 0.49);
+    margin-top: -55px !important;
+}
+
+.inputProducts button {
+    background-color: #D9D9D9 !important;
+    color: black;
 }
 
 .inputProducts select {
@@ -404,4 +454,13 @@ a {
     text-align: left;
     font-family: 'Comfortaa', cursive !important;
     font-size: 18px;
+    background-color: rgba(47, 61, 38, 0.49);
+    /* height: 60px; */
+    margin-top: 20px !important;
+}
+
+.sumKkal div {
+    display: flex;
+    align-items: center;
+    
 }

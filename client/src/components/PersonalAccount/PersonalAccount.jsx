@@ -63,14 +63,6 @@ export default function PersonalAccount() {
   const statHandler = () => {
     navigate('/personalaccount/statistics');
   };
-
-  // логика нажатой кнопки
-  // console.log(type, 'это тайп');
-  // const [active1, setActive1] = useState({ color: 'white' });
-  // const [active2, setActive2] = useState(false);
-  // const [active3, setActive3] = useState({ color: 'white' });
-  // const [active4, setActive4] = useState({ color: 'white' });
-  // const [disable, setDisable] = useState(true);
   return (
 
     <Row className="personalAccountRow">
@@ -224,14 +216,16 @@ export default function PersonalAccount() {
               </Form>
 
             </Row>
-            <Row>
+            <Row className="productListRow">
               <div className="productList">
                 <FormProducts product={product} />
 
               </div>
             </Row>
             <Row className="sumKkal">
-              сумма калорий за день
+              <div>
+                сумма калорий за день
+              </div>
             </Row>
           </Row>
         </Col>
