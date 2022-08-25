@@ -1,4 +1,12 @@
 .registrationBlock {
-    display: block; /* смещает только блоки */ 
-    margin-left: auto;
+    width: calc(100vw - 300px);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.recipe {
+ color:rgb(255, 255, 255) !important;
+ font-size: 30px;
+ margin-left: 33vw;
+ transform: translate(-50%);
 }
