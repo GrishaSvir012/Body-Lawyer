@@ -23,11 +23,8 @@ const store = configureStore({
     chatUsers: chatUserReducer,
     messages: chatMessageReducer,
     products: productsReducer,
-<<<<<<< HEAD
     allProduct: allProductsReducer,
-=======
     statistics: statReducer,
->>>>>>> 97372c191c2fa82c0d85403c36949ba32f1b8bc8
   },
   middleware: (getDefaultMiddleware) => [...getDefaultMiddleware(), sagaMiddleware],
 });
