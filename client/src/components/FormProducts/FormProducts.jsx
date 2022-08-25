@@ -18,7 +18,7 @@ export default function FormProducts() {
                      height: 'max-content',
                    }} */}
 
-        <TableHead>
+        <TableHead className="tableHead">
           <TableRow>
             <TableCell>#</TableCell>
             <TableCell align="center">наименование продукта</TableCell>
