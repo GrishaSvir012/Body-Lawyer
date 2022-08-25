@@ -9,7 +9,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Box } from '@mui/material';
@@ -19,6 +19,8 @@ import ScrollInput from '../ScrollInput/ScrollInput';
 import MyDate from '../Date/MyDate';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
+import FormProducts from '../FormProducts/FormProducts';
+import { allProductGetAction } from '../../Redux/actions/allProductAction';
 
 export default function PersonalAccount() {
   const person = useSelector((state) => state.body);
@@ -27,10 +29,20 @@ export default function PersonalAccount() {
   const [input, setInput] = useState('');
   const [type, setType] = useState(null);
   const [product, setProduct] = useState({});
+<<<<<<< HEAD
+  // const [myAllProducts, setMyAllProducts] = useState({});
+  const [calendar, setCalendar] = useState('');
+  const [open, setOpen] = useState(false);
+  const refOne = useRef(null);
+
+  const dispatch = useDispatch();
+
+=======
   const [calendar, setCalendar] = useState('');
   const [open, setOpen] = useState(false);
   const refOne = useRef(null);
   console.log(calendar, 'dataaaaa');
+>>>>>>> 97372c191c2fa82c0d85403c36949ba32f1b8bc8
   const handleSelect = (date) => {
     setCalendar(format(date, 'yyyy/MM/dd'));
     // console.log(date);
@@ -43,6 +55,7 @@ export default function PersonalAccount() {
   useEffect(() => {
     setCalendar(format(new Date(), 'yyyy/MM/dd'));
     document.addEventListener('click', hideOnClickOutSide, true);
+    return () => { document.removeEventListener('click', hideOnClickOutSide); };
   }, []);
   const submitHandler = (e) => {
     e.preventDefault();
@@ -52,7 +65,15 @@ export default function PersonalAccount() {
       .then((res) => setProduct(res.data))
       .catch((err) => console.log(err));
   };
+<<<<<<< HEAD
+
+  useEffect(() => {
+    dispatch(allProductGetAction(type, calendar));
+  }, [type, calendar, product]);
+
+=======
   console.log(product, 'product in PersAcc');
+>>>>>>> 97372c191c2fa82c0d85403c36949ba32f1b8bc8
   const changeHandler = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -220,66 +241,8 @@ export default function PersonalAccount() {
             </Row>
             <Row>
               <div className="productList">
-                <TableContainer
-                  sx={{
-                    height: 300,
-                  }}
-                >
-                  <Table>
-                    {/* sx={{
-                     height: 'max-content',
-                   }} */}
-                    <TableHead>
-                      <TableRow>
-                        <TableCell>#</TableCell>
-                        <TableCell align="center">наименование продукта</TableCell>
-                        <TableCell align="center">гр</TableCell>
-                        <TableCell align="center">к</TableCell>
-                        <TableCell align="center">б</TableCell>
-                        <TableCell align="center">ж</TableCell>
-                        <TableCell align="center">у</TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      <TableRow>
-                        <TableCell>1</TableCell>
-                        <TableCell align="center">борщ</TableCell>
-                        <TableCell align="center">300</TableCell>
-                        <TableCell align="center">300</TableCell>
-                        <TableCell align="center">4</TableCell>
-                        <TableCell align="center">20</TableCell>
-                        <TableCell align="center">10</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell>2</TableCell>
-                        <TableCell align="center">борщ</TableCell>
-                        <TableCell align="center">300</TableCell>
-                        <TableCell align="center">300</TableCell>
-                        <TableCell align="center">4</TableCell>
-                        <TableCell align="center">20</TableCell>
-                        <TableCell align="center">10</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell>2</TableCell>
-                        <TableCell align="center">борщ</TableCell>
-                        <TableCell align="center">300</TableCell>
-                        <TableCell align="center">300</TableCell>
-                        <TableCell align="center">4</TableCell>
-                        <TableCell align="center">20</TableCell>
-                        <TableCell align="center">10</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell>-</TableCell>
-                        <TableCell align="center">Сумма калорий за завтрак</TableCell>
-                        <TableCell align="center">-</TableCell>
-                        <TableCell align="center">-</TableCell>
-                        <TableCell align="center">-</TableCell>
-                        <TableCell align="center">-</TableCell>
-                        <TableCell align="center">-</TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </TableContainer>
+                <FormProducts product={product} />
+
               </div>
             </Row>
             <Row className="sumKkal">
