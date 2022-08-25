@@ -33,7 +33,7 @@ export default function RecipesPage() {
             placeholder="write here..."
           />
           <Button type="submit" color="success">
-            Добавить
+            Ввод
           </Button>
         </InputGroup>
       </Form>

@@ -3,22 +3,16 @@ import {
   Row, Col, Breadcrumb, BreadcrumbItem, Form, Input
 } from 'reactstrap';
 import Button from '@mui/material/Button';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Box } from '@mui/material';
 import { Calendar } from 'react-date-range';
 import format from 'date-fns/format';
 import ScrollInput from '../ScrollInput/ScrollInput';
-import MyDate from '../Date/MyDate';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
+import FormProducts from '../FormProducts/FormProducts';
+import { allProductGetAction } from '../../Redux/actions/allProductAction';
 
 export default function PersonalAccount() {
   const person = useSelector((state) => state.body);
@@ -27,22 +21,26 @@ export default function PersonalAccount() {
   const [input, setInput] = useState('');
   const [type, setType] = useState(null);
   const [product, setProduct] = useState({});
+  // const [myAllProducts, setMyAllProducts] = useState({});
   const [calendar, setCalendar] = useState('');
   const [open, setOpen] = useState(false);
   const refOne = useRef(null);
-  console.log(calendar, 'dataaaaa');
+
+  const dispatch = useDispatch();
+
   const handleSelect = (date) => {
     setCalendar(format(date, 'yyyy/MM/dd'));
-    // console.log(date);
   };
   const hideOnClickOutSide = (e) => {
     if (refOne.current && !refOne.current.contains(e.target)) {
       setOpen(false);
     }
   };
+
   useEffect(() => {
     setCalendar(format(new Date(), 'yyyy/MM/dd'));
     document.addEventListener('click', hideOnClickOutSide, true);
+    return () => { document.removeEventListener('click', hideOnClickOutSide); };
   }, []);
   const submitHandler = (e) => {
     e.preventDefault();
@@ -52,6 +50,11 @@ export default function PersonalAccount() {
       .then((res) => setProduct(res.data))
       .catch((err) => console.log(err));
   };
+
+  useEffect(() => {
+    dispatch(allProductGetAction(type, calendar));
+  }, [type, calendar, product]);
+
   console.log(product, 'product in PersAcc');
   const changeHandler = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -113,6 +116,11 @@ export default function PersonalAccount() {
                       {user.body.mission === 'slim'
                       && 'Похудеть'}
                     </li>
+                    <li>
+                      Норма ККАЛ:
+                      {' '}
+                      {person[0]}
+                    </li>
                   </>
                 )}
               </ul>
@@ -158,9 +166,7 @@ export default function PersonalAccount() {
                           )}
                   </div>
                 </>
-                {/* </Box> */}
               </Col>
-              {/* </Box> */}
             </Row>
             <Row className="buttonMeals">
               <div>
@@ -212,66 +218,8 @@ export default function PersonalAccount() {
             </Row>
             <Row className="productListRow">
               <div className="productList">
-                <TableContainer
-                  sx={{
-                    height: 300,
-                  }}
-                >
-                  <Table>
-                    {/* sx={{
-                     height: 'max-content',
-                   }} */}
-                    <TableHead>
-                      <TableRow>
-                        <TableCell>#</TableCell>
-                        <TableCell align="center">наименование продукта</TableCell>
-                        <TableCell align="center">гр</TableCell>
-                        <TableCell align="center">к</TableCell>
-                        <TableCell align="center">б</TableCell>
-                        <TableCell align="center">ж</TableCell>
-                        <TableCell align="center">у</TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      <TableRow>
-                        <TableCell>1</TableCell>
-                        <TableCell align="center">борщ</TableCell>
-                        <TableCell align="center">300</TableCell>
-                        <TableCell align="center">300</TableCell>
-                        <TableCell align="center">4</TableCell>
-                        <TableCell align="center">20</TableCell>
-                        <TableCell align="center">10</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell>2</TableCell>
-                        <TableCell align="center">борщ</TableCell>
-                        <TableCell align="center">300</TableCell>
-                        <TableCell align="center">300</TableCell>
-                        <TableCell align="center">4</TableCell>
-                        <TableCell align="center">20</TableCell>
-                        <TableCell align="center">10</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell>2</TableCell>
-                        <TableCell align="center">борщ</TableCell>
-                        <TableCell align="center">300</TableCell>
-                        <TableCell align="center">300</TableCell>
-                        <TableCell align="center">4</TableCell>
-                        <TableCell align="center">20</TableCell>
-                        <TableCell align="center">10</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell>-</TableCell>
-                        <TableCell align="center">Сумма калорий за завтрак</TableCell>
-                        <TableCell align="center">-</TableCell>
-                        <TableCell align="center">-</TableCell>
-                        <TableCell align="center">-</TableCell>
-                        <TableCell align="center">-</TableCell>
-                        <TableCell align="center">-</TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </TableContainer>
+                <FormProducts product={product} />
+
               </div>
             </Row>
             <Row className="sumKkal">

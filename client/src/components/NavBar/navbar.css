@@ -1,0 +1,4 @@
+.registrationBlock {
+    display: block; /* смещает только блоки */ 
+    margin-left: auto;
+}

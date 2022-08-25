@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import Button from '@mui/material/Button';
 import { logoutUser } from '../../Redux/actions/userActions';
+import './navbar.css';
 
 function NavBar() {
   const user = useSelector((state) => state.user);
@@ -38,27 +39,28 @@ function NavBar() {
               className="logo"
               style={{ color: ws ? 'green' : 'red' }}
             >
-              <Link to="/">адвокат тела</Link>
+              <Link to="/"><h2>адвокат тела</h2></Link>
 
             </Button>
             { user.id
               ? (
-                <>
-                  <p className="helloUser">
-                    Hello,
-                    {' '}
-                    {user.name}
-                  </p>
+                <div className="registrationBlock">
+                  <Button className="LK">
+                    <Link to="personalaccount">Личный кабинет</Link>
+                  </Button>
                   <Button className="registration" onClick={logoutHandler}>
                     <Link to="/">выход</Link>
                   </Button>
                   <Button className="LK">
                     <Link to="personalaccount">Личный кабинет</Link>
                   </Button>
-                </>
+                </div>
               )
               : (
                 <div className="registrationBlock">
+                  <Button className="registration">
+                    <Link to="/recipes">Найти рецепт</Link>
+                  </Button>
                   <Button className="registration">
                     <Link to="/signup">зарегистрироваться</Link>
                   </Button>
