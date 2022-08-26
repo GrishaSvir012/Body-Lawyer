@@ -11,3 +11,7 @@
  margin-right: 15vw;
  transform: translate(-50%);
 }
+
+.cool a {
+    padding-top: 7px;
+}
