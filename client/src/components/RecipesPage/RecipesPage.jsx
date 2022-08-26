@@ -39,8 +39,9 @@ export default function RecipesPage() {
             value={input}
             onChange={inputHandler}
             id="outlined-basic"
-            label="ввести продукт"
+            label="введите продукты"
             variant="outlined"
+            className="inputRecipes"
           />
           <Button
             className="knopka"

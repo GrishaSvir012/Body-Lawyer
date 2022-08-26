@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 export default function UserInfoBlock() {
   const location = useLocation();
   const person = useSelector((state) => state.body);
+  const personInfo = useSelector((state) => state.getBodyInfo);
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
   const statHandler = () => {
@@ -68,8 +69,8 @@ export default function UserInfoBlock() {
                     </li>
                     <li>
                       норма калорий:
-                      {' '}
-                      {/* {person[0]} */}
+                      {personInfo.length > 0
+                      && personInfo[0].calories_needed}
                     </li>
                   </>
                 )}
