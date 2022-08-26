@@ -25,6 +25,7 @@ export default function SignIn() {
         <Form onSubmit={submitHandler} className="form">
           <div className="titleForm">вход</div>
           <TextField
+            className="inputReg"
             id="outlined-basic"
             label="email"
             variant="outlined"
@@ -34,6 +35,7 @@ export default function SignIn() {
             value={input.email || ''}
           />
           <TextField
+            className="inputReg"
             id="outlined-basic"
             label="пароль"
             variant="outlined"
@@ -43,6 +45,7 @@ export default function SignIn() {
             value={input.password || ''}
           />
           <Button
+            classname="buttonReg"
             type="submit"
             id="button"
             variant="contained"

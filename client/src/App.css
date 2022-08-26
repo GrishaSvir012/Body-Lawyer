@@ -188,7 +188,7 @@ a {
 }
 
 .titleForm{
-    font-family: 'Jost', sans-serif;
+    font-family: 'Comfortaa', cursive;
     width: 500px;
     font-size: 32px;
 }
@@ -210,7 +210,7 @@ a {
 }
 
 .fileUpload {
-    width: 500px;
+    width: 650px;
 }
 
 
@@ -492,3 +492,43 @@ a {
     height: 100%;
     width: 100% !important;
 }
+
+.inputReg {
+    display: flex !important;
+    justify-content: center;
+    width: 71%;
+}
+
+#button .buttonReg{
+    width: 47% !important;
+}
+
+.MuiInputBase-root {
+    width: 100%;
+}
+
+
+.MuiFormControl-root {
+    width: 71% !important;
+}
+
+.MuiFormGroup-row {
+    display: flex;
+    align-items: center;
+}
+
+.form .buttonSignUp{
+    margin-bottom: 20px !important;
+    width: 40% !important;
+}
+
+
+#demo-row-radio-buttons-group-label {
+    margin-right: 40px;
+}
+
+#mini {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
