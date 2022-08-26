@@ -68,8 +68,8 @@ export default function UserInfoBlock() {
                     </li>
                     <li>
                       норма калорий:
-                      {' '}
-                      {person[0]}
+                      {/* {' '}
+                      {person[0]} */}
                     </li>
                   </>
                 )}

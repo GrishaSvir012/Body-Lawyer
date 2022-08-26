@@ -26,13 +26,6 @@ export default function RecipesPage() {
     <Row className="recipesRow">
       <Form className="formInputRecipes" onSubmit={submitHandler}>
         <InputGroup className="input-task">
-          {/* <Input
-            type="text"
-            name="post"
-            value={input}
-            onChange={inputHandler}
-            placeholder="write here..."
-          /> */}
           <TextField
             type="text"
             name="name"
