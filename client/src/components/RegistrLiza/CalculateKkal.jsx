@@ -37,7 +37,7 @@ export default function CalculateKkal() {
       <Col className="formCol">
         <Form onSubmit={submitHandler} className="form">
           <div className="titleForm">регистрация</div>
-          <div className="titleForm">подсчет нормы калорий</div>
+          <div className="titleForm" id="mini">подсчет нормы калорий</div>
           <FormControl
             style={{ width: '500px' }}
           >
@@ -49,13 +49,14 @@ export default function CalculateKkal() {
               aria-labelledby="demo-row-radio-buttons-group-label"
             >
               <FormLabel id="demo-row-radio-buttons-group-label">
-                Gender
+                пол:
               </FormLabel>
-              <FormControlLabel value="female" control={<Radio />} label="Female" />
-              <FormControlLabel value="male" control={<Radio />} label="Male" />
+              <FormControlLabel value="female" control={<Radio />} label="женский" />
+              <FormControlLabel value="male" control={<Radio />} label="мужской" />
             </RadioGroup>
           </FormControl>
           <TextField
+            className="inputReg"
             name="age"
             value={input.age || ''}
             onChange={changeHandler}
@@ -64,6 +65,7 @@ export default function CalculateKkal() {
             variant="outlined"
           />
           <TextField
+            className="inputReg"
             name="weigth"
             value={input.weigth || ''}
             onChange={changeHandler}
@@ -72,6 +74,7 @@ export default function CalculateKkal() {
             variant="outlined"
           />
           <TextField
+            className="inputReg"
             name="height"
             value={input.height || ''}
             onChange={changeHandler}
@@ -82,6 +85,7 @@ export default function CalculateKkal() {
           <FormControl sx={{ m: 1, minWidth: 80 }}>
             <InputLabel id="demo-simple-select-autowidth-label">физическая активность</InputLabel>
             <Select
+              className="inputReg"
               name="activity"
               value={input.activity || ''}
               labelId="demo-simple-select-autowidth-label"
@@ -96,6 +100,7 @@ export default function CalculateKkal() {
           <FormControl sx={{ m: 1, minWidth: 80 }}>
             <InputLabel id="demo-simple-select-autowidth-label">Выберите цель</InputLabel>
             <Select
+              className="inputReg"
               name="mission"
               value={input.mission || ''}
               onChange={changeHandler}
@@ -116,6 +121,7 @@ export default function CalculateKkal() {
             type="submit"
             id="button"
             variant="contained"
+            className="buttonSignUp"
           >
             зарегистрироваться
           </Button>

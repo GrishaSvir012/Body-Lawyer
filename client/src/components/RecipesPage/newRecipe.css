@@ -134,8 +134,22 @@ ul.checkmark .liIn:before {
   flex-wrap: wrap;
   margin-top: 20px;
   margin-right: 23vw;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .knopka {
   height: 55.97px !important;
+  width: 30%
+}
+
+.inputRecipes {
+  width: 70% !important;
+}
+
+.recipesRow {
+  height: 100vh;
+  display: flex !important;
+  align-items: center;
 }
