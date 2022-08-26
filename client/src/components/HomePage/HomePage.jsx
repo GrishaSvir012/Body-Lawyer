@@ -45,12 +45,12 @@ export default function HomePage() {
           </div>
         </Col>
       </Row>
-      <Row className="thirdRow">
+      {/* <Row className="thirdRow">
         <div className="thirdRow">
 
           <ChatPage />
         </div>
-      </Row>
+      </Row> */}
 
     </>
 

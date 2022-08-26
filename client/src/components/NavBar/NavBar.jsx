@@ -29,7 +29,7 @@ function NavBar() {
             noWrap
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
+              display: { xs: 'flex', md: 'flex' },
               fontWeight: 700,
               color: 'inherit',
               textDecoration: 'none',
@@ -42,10 +42,13 @@ function NavBar() {
               >
                 <Link to="/"><h2>адвокат тела</h2></Link>
               </Button>
+            </div>
+            <div className="wantEat">
               <Button className="registration">
                 <Link className="recipe" to="/recipes">хочу есть</Link>
               </Button>
             </div>
+
             { user.id
               ? (
                 <div className="registrationBlock">
