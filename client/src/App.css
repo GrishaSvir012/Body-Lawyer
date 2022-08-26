@@ -506,3 +506,29 @@ a {
 .MuiInputBase-root {
     width: 100%;
 }
+
+
+.MuiFormControl-root {
+    width: 71% !important;
+}
+
+.MuiFormGroup-row {
+    display: flex;
+    align-items: center;
+}
+
+.form .buttonSignUp{
+    margin-bottom: 20px !important;
+    width: 40% !important;
+}
+
+
+#demo-row-radio-buttons-group-label {
+    margin-right: 40px;
+}
+
+#mini {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
