@@ -3,6 +3,7 @@ import { Col, Form, Row } from 'reactstrap';
 import TextField from '@mui/material/TextField';
 import { Button, Box } from '@mui/material';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { signInUser } from '../../Redux/actions/userActions';
 
 export default function SignIn() {
@@ -11,12 +12,13 @@ export default function SignIn() {
   const inputHandler = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+  const navigate = useNavigate();
 
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(signInUser(input));
+    navigate('/personalaccount');
   };
-
   return (
     <Row className="formRow">
       <Col className="formCol">
